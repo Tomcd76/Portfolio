@@ -1,4 +1,22 @@
-import { Search, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor, FileText } from "lucide-react";
+import { 
+  Search, 
+  Rss, 
+  ExternalLink, 
+  BookOpen, 
+  Target, 
+  Cpu, 
+  Monitor, 
+  FileText, 
+  Server, 
+  HardDrive, 
+  Database, 
+  ShieldCheck, 
+  Globe, 
+  BrainCircuit, 
+  Image as ImageIcon, 
+  Film, 
+  LibraryBig 
+} from "lucide-react";
 
 export default function Veille() {
   const veilleLinks = [
@@ -132,7 +150,7 @@ export default function Veille() {
           Développement Professionnel & Veille
         </h2>
         <p className="text-2xl text-zinc-400 max-w-4xl leading-relaxed">
-          Organisation de mon apprentissage continu et stratégie de veille informationnelle.
+          Organisation de mon apprentissage continu, infrastructure personnelle et stratégie de veille informationnelle.
         </p>
       </header>
 
@@ -154,7 +172,7 @@ export default function Veille() {
                   Thème de Veille
                 </h2>
                 
-                {/* --- BOUTON POUR OUVRIR LE PDF DANS UN NOUVEL ONGLET --- */}
+                {/* BOUTON POUR OUVRIR LE PDF DANS UN NOUVEL ONGLET */}
                 <a 
                   href="/Mise en place de ma veille technologique avec Feedly.pdf" 
                   target="_blank"
@@ -236,77 +254,189 @@ export default function Veille() {
         </div>
 
         {/* --- SECTION DEVELOPPEMENT PROFESSIONNEL --- */}
-        <div className="space-y-12">
-          <h3 className="text-4xl font-bold text-white flex items-center gap-5 border-b border-zinc-800 pb-8">
-            <Target className="w-10 h-10 text-emerald-400" />
-            Développement Professionnel
-          </h3>
+        <div className="space-y-16">
+          <header>
+            <h3 className="text-4xl font-bold text-white flex items-center gap-5 border-b border-zinc-800 pb-8">
+              <Server className="w-10 h-10 text-emerald-400" />
+              Environnement d'Apprentissage & Infrastructure
+            </h3>
+          </header>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Environnement d'Apprentissage */}
-            <div className="lg:col-span-1">
-              <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 h-full">
-                <h2 className="text-3xl font-semibold text-white mb-8 flex items-center gap-4">
-                  <BookOpen className="w-8 h-8 text-emerald-400" />
-                  Environnement d'Apprentissage
-                </h2>
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-base uppercase font-bold text-zinc-500 mb-4">Plateformes</h3>
-                    <div className="flex flex-wrap gap-4">
-                      <span className="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-base text-zinc-300">IT Connect</span>
-                      <span className="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-base text-zinc-300">Reddit</span>
-                      <span className="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-base text-zinc-300">GitHub</span>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-base uppercase font-bold text-zinc-500 mb-4">Lab Local</h3>
-                    <div className="p-6 bg-zinc-950 rounded-2xl border border-zinc-800 text-base text-zinc-400 font-mono mb-8">
-                      <div className="flex items-center gap-3 mb-3 text-zinc-300">
-                        <Cpu className="w-5 h-5" /> Proxmox Server
+          {/* Infrastructure Homelab Proxmox */}
+          <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10">
+            <h2 className="text-3xl font-semibold text-white mb-8 flex items-center gap-4">
+              <BookOpen className="w-8 h-8 text-emerald-400" />
+              Mon "Homelab" Proxmox
+            </h2>
+            
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
+              {/* Détails techniques */}
+              <div className="space-y-8">
+                <p className="text-xl text-zinc-400 leading-relaxed">
+                  Pour monter en compétences, j'ai déployé et j'administre ma propre infrastructure réseau à domicile. Hébergée sur un mini PC <strong>Geekom (Modèle 2025) doté de 16 Go de RAM</strong>, cette architecture sous <strong className="text-zinc-200">Proxmox VE</strong> me permet de virtualiser et conteneuriser l'ensemble de mes services personnels.
+                </p>
+
+                {/* Stratégie de Stockage */}
+                <div className="bg-zinc-950 rounded-2xl p-6 border border-zinc-800">
+                  <h3 className="text-lg font-bold text-zinc-300 mb-6 uppercase tracking-wider">Stratégie de Stockage</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-zinc-900 rounded-xl border border-zinc-800 text-emerald-400">
+                        <Cpu className="w-6 h-6" />
                       </div>
-                      <ul className="pl-8 list-disc space-y-2">
-                        <li>Ubuntu</li>
-                        <li>Debian</li>
-                      </ul>
+                      <div>
+                        <h4 className="text-lg font-semibold text-zinc-200">Disque Système (500 Go) <span className="text-sm font-mono text-zinc-500 ml-2">STG-6-01</span></h4>
+                        <p className="text-zinc-400 mt-1">Dédié à l'installation de l'OS Proxmox et aux disques virtuels (système) des VMs et conteneurs LXC.</p>
+                      </div>
                     </div>
-                    <div className="w-full aspect-video bg-zinc-950 border-2 border-dashed border-zinc-800 rounded-2xl flex flex-col items-center justify-center text-zinc-600 relative overflow-hidden group">
-                      <Monitor className="w-12 h-12 mb-4 opacity-50" />
-                      <span className="text-base text-center px-6">Emplacement pour la photo<br/>de mon infrastructure Proxmox</span>
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-zinc-900 rounded-xl border border-zinc-800 text-indigo-400">
+                        <HardDrive className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-zinc-200">Disque Data (SSD 2 To) <span className="text-sm font-mono text-zinc-500 ml-2">stg-6data-601</span></h4>
+                        <p className="text-zinc-400 mt-1">Dédié au stockage de masse : base de données Vaultwarden, médias Jellyfin, cloud personnel, etc.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </section>
-            </div>
 
-            {/* Projet Professionnel */}
-            <div className="lg:col-span-2">
-              <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 h-full">
-                <h2 className="text-3xl font-semibold text-white mb-8 flex items-center gap-4">
-                  <Target className="w-8 h-8 text-emerald-400" />
-                  Projet Professionnel
-                </h2>
-                <div className="bg-zinc-950/50 p-10 rounded-2xl border border-zinc-800">
-                  <p className="text-zinc-300 italic text-2xl mb-8 leading-relaxed">
-                    "Mon objectif est de m'orienter vers un Bachelor RDC (Responsable de Développement Commercial). Bien que j'aie de solides bases techniques en informatique, je suis particulièrement attiré par le contact client et la relation commerciale."
-                  </p>
-                  <p className="text-zinc-400 text-xl mb-10 leading-relaxed">
-                    Ma force réside dans ma capacité à faire le pont entre la technique et le client. J'excelle dans la vulgarisation : je sais traduire des concepts complexes en termes simples et accessibles (par exemple, expliquer qu'un 'switch' fonctionne comme une 'multiprise' intelligente). Cette double compétence technique et relationnelle est un atout majeur pour accompagner et conseiller efficacement les clients.
-                  </p>
-                  <div className="flex flex-wrap gap-6">
-                    <div className="flex items-center gap-4 text-xl text-zinc-300 font-medium bg-zinc-900 px-6 py-3 rounded-xl border border-zinc-800">
-                      <div className="w-4 h-4 rounded-full bg-emerald-500" />
-                      <span>Bachelor RDC</span>
+                {/* Services Déployés */}
+                <div>
+                  <h3 className="text-lg font-bold text-zinc-300 mb-6 uppercase tracking-wider">Services Administrés</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <Globe className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">LB-proxy-01</p>
+                        <p className="text-xs text-zinc-500">Reverse Proxy (Redirection de ports)</p>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-4 text-xl text-zinc-300 font-medium bg-zinc-900 px-6 py-3 rounded-xl border border-zinc-800">
-                      <div className="w-4 h-4 rounded-full bg-indigo-500" />
-                      <span>Relation Client & Vulgarisation</span>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <ShieldCheck className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">Sec-Vault-01</p>
+                        <p className="text-xs text-zinc-500">Vaultwarden (Gestionnaire MDP)</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <Film className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">Media-Jelly-01</p>
+                        <p className="text-xs text-zinc-500">Serveur Multimédia Jellyfin</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <ImageIcon className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">galerie-image-imm-ich</p>
+                        <p className="text-xs text-zinc-500">Immich (Alternative Google Photos)</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <Database className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">filegator / 6 SRV</p>
+                        <p className="text-xs text-zinc-500">Drive personnel auto-hébergé</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <Server className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">web-site-sites-01</p>
+                        <p className="text-xs text-zinc-500">Hébergement Web (Portfolio)</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <Monitor className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">Serveur Zabbix</p>
+                        <p className="text-xs text-zinc-500">Supervision de l'infrastructure</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <BrainCircuit className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">IA Locale (LLaMA)</p>
+                        <p className="text-xs text-zinc-500">Intelligence Artificielle Open Source</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <LibraryBig className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">Livres Audio & Cinequiz</p>
+                        <p className="text-xs text-zinc-500">Serveur Audio & Mini-jeu Web</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-zinc-950 p-4 rounded-xl border border-zinc-800">
+                      <Monitor className="w-5 h-5 text-zinc-500" />
+                      <div>
+                        <p className="font-mono text-sm text-zinc-300">web-portal-01</p>
+                        <p className="text-xs text-zinc-500">Homebase (Portail centralisé)</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </section>
+              </div>
+
+              {/* Capture d'écran Proxmox */}
+              <div className="w-full flex flex-col gap-6">
+                <div className="w-full bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl relative group">
+                  <div className="absolute inset-0 bg-indigo-500/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
+                  <img 
+                    src="/MonProxmox.png" 
+                    alt="Interface d'administration de mon cluster Proxmox" 
+                    className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                  <div className="bg-zinc-900 border-t border-zinc-800 p-4 text-center text-sm text-zinc-400">
+                    Aperçu de l'interface d'administration de mon noeud Proxmox
+                  </div>
+                </div>
+
+                <div className="bg-emerald-500/5 border border-emerald-500/20 rounded-2xl p-6">
+                  <h4 className="text-emerald-400 font-bold mb-2 flex items-center gap-2">
+                    <BookOpen className="w-5 h-5" />
+                    Ressources d'Apprentissage
+                  </h4>
+                  <p className="text-zinc-400 text-lg">
+                    En complément de mon environnement de laboratoire (Proxmox), ma veille technique et mon auto-formation s'appuient quotidiennement sur des plateformes comme <strong>IT-Connect</strong>, <strong>Reddit</strong> ou encore <strong>GitHub</strong>.
+                  </p>
+                </div>
+              </div>
+
             </div>
-          </div>
+          </section>
+
+          {/* Projet Professionnel */}
+          <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10">
+            <h2 className="text-3xl font-semibold text-white mb-8 flex items-center gap-4">
+              <Target className="w-8 h-8 text-indigo-400" />
+              Projet Professionnel
+            </h2>
+            <div className="bg-zinc-950/50 p-10 rounded-2xl border border-zinc-800">
+              <p className="text-zinc-300 italic text-2xl mb-8 leading-relaxed">
+                "Mon objectif est de m'orienter vers un Bachelor RDC (Responsable de Développement Commercial). Bien que j'aie de solides bases techniques en informatique, je suis particulièrement attiré par le contact client et la relation commerciale."
+              </p>
+              <p className="text-zinc-400 text-xl mb-10 leading-relaxed">
+                Ma force réside dans ma capacité à faire le pont entre la technique et le client. J'excelle dans la vulgarisation : je sais traduire des concepts complexes en termes simples et accessibles (par exemple, expliquer qu'un 'switch' fonctionne comme une 'multiprise' intelligente). Cette double compétence, alliant la maîtrise d'infrastructures techniques (comme mon Proxmox) et l'aisance relationnelle, est un atout majeur pour accompagner, rassurer et conseiller efficacement les clients.
+              </p>
+              <div className="flex flex-wrap gap-6">
+                <div className="flex items-center gap-4 text-xl text-zinc-300 font-medium bg-zinc-900 px-6 py-3 rounded-xl border border-zinc-800 shadow-md">
+                  <div className="w-4 h-4 rounded-full bg-emerald-500" />
+                  <span>Bachelor RDC</span>
+                </div>
+                <div className="flex items-center gap-4 text-xl text-zinc-300 font-medium bg-zinc-900 px-6 py-3 rounded-xl border border-zinc-800 shadow-md">
+                  <div className="w-4 h-4 rounded-full bg-indigo-500" />
+                  <span>Relation Client & Vulgarisation</span>
+                </div>
+                <div className="flex items-center gap-4 text-xl text-zinc-300 font-medium bg-zinc-900 px-6 py-3 rounded-xl border border-zinc-800 shadow-md">
+                  <div className="w-4 h-4 rounded-full bg-blue-500" />
+                  <span>Double Compétence Tech/Commerce</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </div>
 
       </div>
