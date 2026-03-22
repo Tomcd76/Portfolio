@@ -1,4 +1,4 @@
-import { Search, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor } from "lucide-react";
+import { Search, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor, Download, FileText } from "lucide-react";
 
 export default function Veille() {
   const veilleLinks = [
@@ -115,13 +115,13 @@ export default function Veille() {
       url: "https://www.frandroid.com/marques/microsoft/3030653_microsoft-abandonne-linstallation-automatique-de-microsoft-365-copilot-sur-windows-11"
     },
     {
-          title: "Proton Born & Private : réservez une adresse e-mail sécurisée pour votre enfant",
-          source: "IT-Connect",
-          date: "21 mars 2026",
-          summary: "Proton lance une initiative pour permettre aux parents de réserver une adresse e-mail chiffrée pour leurs enfants. Une stratégie qui mise sur la protection de la vie privée dès le plus jeune âge au sein de l'écosystème Proton.",
-          image: "https://www.justgeek.fr/wp-content/uploads/2026/03/proton-mail-born-private.webp",
-          url: "https://www.it-connect.fr/proton-born-private-reservez-une-adresse-e-mail-pour-votre-enfant/"
-        }   
+      title: "Proton Born & Private : réservez une adresse e-mail sécurisée pour votre enfant",
+      source: "IT-Connect",
+      date: "21 mars 2026",
+      summary: "Proton lance une initiative pour permettre aux parents de réserver une adresse e-mail chiffrée pour leurs enfants. Une stratégie qui mise sur la protection de la vie privée dès le plus jeune âge au sein de l'écosystème Proton.",
+      image: "https://www.justgeek.fr/wp-content/uploads/2026/03/proton-mail-born-private.webp",
+      url: "https://www.it-connect.fr/proton-born-private-reservez-une-adresse-e-mail-pour-votre-enfant/"
+    }   
   ];
 
   return (
@@ -147,11 +147,24 @@ export default function Veille() {
 
           <div className="grid grid-cols-1 gap-12">
             {/* Thème de Veille */}
-            <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10">
-              <h2 className="text-3xl font-semibold text-white mb-8 flex items-center gap-4">
-                <Search className="w-8 h-8 text-indigo-400" />
-                Thème de Veille
-              </h2>
+            <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 relative overflow-hidden">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+                <h2 className="text-3xl font-semibold text-white flex items-center gap-4">
+                  <Search className="w-8 h-8 text-indigo-400" />
+                  Thème de Veille
+                </h2>
+                
+                {/* --- BOUTON DE TÉLÉCHARGEMENT PDF --- */}
+                <a 
+                  href="/Mise en place de ma veille technologique avec Feedly.pdf" 
+                  download="Mise en place de ma veille technologique avec Feedly.pdf"
+                  className="flex items-center gap-3 bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 group shadow-lg shadow-indigo-500/20 active:scale-95"
+                >
+                  <Download className="w-5 h-5 group-hover:bounce" />
+                  Guide Méthodologique (PDF)
+                </a>
+              </div>
+
               <div className="prose prose-invert prose-xl max-w-none text-zinc-300">
                 <h3 className="text-white font-bold text-2xl mb-4">
                   Évolutions et contraintes des écosystèmes OS et matériels en 2026 : Nouveautés, Sécurité et Usages
@@ -159,9 +172,11 @@ export default function Veille() {
                 <p className="leading-relaxed">
                   Ma veille technologique porte sur les évolutions et les contraintes des écosystèmes OS et matériels en 2026 (iOS, Android, Windows, Linux, ChromeOS).
                 </p>
-                <p className="mt-6 leading-relaxed">
-                  <strong className="text-indigo-400">Objectif :</strong> À travers l'étude des nouveautés de fonctionnalités, des vulnérabilités (CVE) et des stratégies des constructeurs (sideloading, IA, gestion du parc), anticiper les impacts techniques et sécuritaires sur la gestion d'un parc informatique en entreprise.
-                </p>
+                <div className="mt-8 p-6 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl">
+                    <p className="leading-relaxed m-0">
+                    <strong className="text-indigo-400">Objectif :</strong> À travers l'étude des nouveautés de fonctionnalités, des vulnérabilités (CVE) et des stratégies des constructeurs (sideloading, IA, gestion du parc), anticiper les impacts techniques et sécuritaires sur la gestion d'un parc informatique en entreprise.
+                    </p>
+                </div>
               </div>
             </section>
 
@@ -169,7 +184,7 @@ export default function Veille() {
             <section className="bg-zinc-900/10 rounded-3xl">
               <h2 className="text-3xl font-semibold text-white mb-10 flex items-center gap-4">
                 <Rss className="w-8 h-8 text-indigo-400" />
-                Sources & Articles de Veille (15 références)
+                Sources & Articles de Veille ({veilleLinks.length} références)
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {veilleLinks.map((link, index) => (
