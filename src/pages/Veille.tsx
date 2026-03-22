@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { 
   Search, 
   Rss, 
@@ -16,10 +17,14 @@ import {
   Image as ImageIcon, 
   Film, 
   LibraryBig,
-  Gamepad2
+  ZoomIn,
+  X
 } from "lucide-react";
 
 export default function Veille() {
+  // État pour gérer l'ouverture de l'image en plein écran
+  const [isImageOpen, setIsImageOpen] = useState(false);
+
   const veilleLinks = [
     {
       title: "iOS 26.4 répare enfin le clavier de l'iPhone : ceux qui écrivent vite vont être ravis",
@@ -263,7 +268,7 @@ export default function Veille() {
             </h3>
           </header>
 
-          {/* Infrastructure Homelab Proxmox - Version DENSE et COMPACTE */}
+          {/* Infrastructure Homelab Proxmox */}
           <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-8">
             <h2 className="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
               <BookOpen className="w-6 h-6 text-emerald-400" />
@@ -272,17 +277,27 @@ export default function Veille() {
             
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
               
-              {/* Colonne Gauche : Config & Image (Prend 3 colonnes sur 5) */}
+              {/* Colonne Gauche : Config & Image */}
               <div className="lg:col-span-3 space-y-5">
                 <p className="text-zinc-400 text-lg">
                   Déploiement et administration de ma propre infrastructure réseau sur un mini PC <strong>Geekom 2025 (16 Go RAM)</strong> sous <strong className="text-zinc-200">Proxmox VE</strong>.
                 </p>
                 
-                <div className="rounded-xl overflow-hidden border border-zinc-800 shadow-xl">
+                {/* L'IMAGE AVEC GESTION DU CLIC POUR LE PLEIN ÉCRAN */}
+                <div 
+                  className="rounded-xl overflow-hidden border border-zinc-800 shadow-xl relative group cursor-pointer"
+                  onClick={() => setIsImageOpen(true)}
+                >
+                  <div className="absolute inset-0 bg-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                    <div className="bg-zinc-900/80 p-3 rounded-full text-white backdrop-blur-sm flex items-center gap-2">
+                      <ZoomIn className="w-5 h-5" />
+                      <span className="text-sm font-bold">Agrandir</span>
+                    </div>
+                  </div>
                   <img 
                     src="/Monproxmox.png" 
                     alt="Interface Proxmox" 
-                    className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
+                    className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
 
@@ -304,14 +319,14 @@ export default function Veille() {
                 </div>
               </div>
 
-              {/* Colonne Droite : Services Administrés (Prend 2 colonnes sur 5) */}
+              {/* Colonne Droite : Services Administrés */}
               <div className="lg:col-span-2">
                 <div className="bg-zinc-950 h-full p-6 rounded-2xl border border-zinc-800">
                   <h3 className="text-sm font-bold text-zinc-500 mb-5 uppercase tracking-widest flex items-center gap-2">
                     <Database className="w-4 h-4 text-emerald-500"/> Services Déployés
                   </h3>
                   
-                  {/* Liste ultra-compacte */}
+                  {/* Liste compacte */}
                   <div className="flex flex-col gap-3">
                     <div className="flex justify-between items-center pb-2 border-b border-zinc-900">
                       <span className="font-mono text-sm text-zinc-300">LB-proxy-01</span>
@@ -371,7 +386,7 @@ export default function Veille() {
                 "Mon objectif est de m'orienter vers un Bachelor RDC (Responsable de Développement Commercial). Bien que j'aie de solides bases techniques en informatique, je suis particulièrement attiré par le contact client et la relation commerciale."
               </p>
               <p className="text-zinc-400 text-lg mb-8 leading-relaxed">
-                Ma force réside dans ma capacité à faire le pont entre la technique et le client. J'excelle dans la vulgarisation : je sais traduire des concepts complexes en termes simples et accessibles (par exemple, expliquer qu'un 'switch' fonctionne comme une 'multiprise' intelligente). Cette double compétence, alliant la maîtrise d'infrastructures techniques (comme mon Proxmox) et l'aisance relationnelle, est un atout majeur pour accompagner, rassurer et conseiller efficacement les clients.
+              Ma force réside dans ma capacité de vulgariser des concepts complexes en termes simples et accessibles (par exemple, expliquer qu'un 'switch' fonctionne comme une 'multiprise' intelligente). Cette double compétence, alliant la maîtrise d'infrastructures techniques (comme mon Proxmox) et l'aisance relationnelle, est un atout majeur pour accompagner, rassurer et conseiller efficacement les clients
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center gap-3 text-lg text-zinc-300 font-medium bg-zinc-900 px-5 py-2.5 rounded-xl border border-zinc-800">
@@ -393,6 +408,28 @@ export default function Veille() {
         </div>
 
       </div>
+
+      {/* --- LIGHTBOX (MODALE PLEIN ÉCRAN POUR L'IMAGE) --- */}
+      {isImageOpen && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/95 backdrop-blur-sm cursor-zoom-out"
+          onClick={() => setIsImageOpen(false)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors p-2"
+            onClick={() => setIsImageOpen(false)}
+          >
+            <X className="w-10 h-10" />
+          </button>
+          <img 
+            src="/Monproxmox.png" 
+            alt="Mon infrastructure Proxmox en plein écran" 
+            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl cursor-default"
+            onClick={(e) => e.stopPropagation()} // Évite de fermer si on clique directement sur l'image
+          />
+        </div>
+      )}
+
     </section>
   );
 }
