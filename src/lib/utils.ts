@@ -218,7 +218,7 @@ export const MOCK_PROJECTS: Project[] = [
     difficulties: "Difficulté principale rencontrée lors de la mise en place du certificat SSL et du DNS local. Le site n'était pas accessible via le nom de domaine en local, nécessitant des ajustements de configuration.",
     results: "Sites Web accessibles en HTTPS. CMS fonctionnel et performant.",
     analysis: "Comprendre le fonctionnement des serveurs Web est essentiel, même pour un profil réseau, car de nombreuses applications métiers sont aujourd'hui full-web.",
-    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Comment déployer une infrastructure Web mixte IIS sur Windows Server 2019 et LAMP sous Debian.pdf" }],
+    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Comment déployer une infrastructure Web mixte  IIS sur Windows Server 2019 et LAMP sous Debian.pdf" }],
     skills: ["patrimoine", "presence", "projet"]
   },
   {
