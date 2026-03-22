@@ -1,146 +1,139 @@
-import { Search, Filter, Share2, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor } from "lucide-react";
+import { Search, Filter, Share2, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor, Zap, ShieldAlert, Award } from "lucide-react";
 
 export default function Veille() {
+  // --- TABLEAU DE VEILLE (MIS À JOUR AVEC LES VRAIS ARTICLES ET LIENS) ---
   const veilleLinks = [
     { 
-      title: "iOS 26.4 répare enfin le clavier de l'iPhone : ceux qui écrivent vite vont être ravis", 
+      title: "iOS 26.4 : le clavier de l'iPhone est (enfin) réparé pour ceux qui écrivent vite", 
       source: "Les Numériques", 
       date: "Mars 2026",
-      summary: "Apple déploie une mise à jour très attendue qui corrige les problèmes de latence du clavier virtuel, un vrai soulagement pour les utilisateurs intensifs.",
-      image: "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Cette mise à jour d'iOS résout les problèmes de latence et d'autocorrection du clavier natif, un bug très frustrant pour les utilisateurs expérimentés.",
+      image: "https://picsum.photos/seed/ios_keyboard/400/225", // Image d'un iPhone avec un clavier affiché
       url: "https://www.lesnumeriques.com/telephone-portable/ios-26-4-repare-enfin-le-clavier-de-l-iphone-ceux-qui-ecrivent-vite-vont-etre-ravis-n253240.html"
     },
     { 
-      title: "PowerToys 0.98 est disponible et apporte un nouveau dock bien pratique à Windows", 
+      title: "PowerToys 0.98 : un nouveau Dock bien pratique arrive sur Windows", 
       source: "IT-Connect", 
       date: "Mars 2026",
-      summary: "La nouvelle version des outils de Microsoft introduit un dock personnalisable, améliorant considérablement l'ergonomie et la productivité sous Windows.",
-      image: "https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Présentation détaillée de la version 0.98 qui introduit 'PowerToys Dock', un outil pour créer des barres d'outils d'accès rapide personnalisables.",
+      image: "https://picsum.photos/seed/windows_dock/400/225", // Image d'un bureau Windows avec le nouveau Dock
       url: "https://www.it-connect.fr/powertoys-0-98-est-disponible-et-apporte-un-nouveau-dock-bien-pratique-a-windows/"
     },
     { 
-      title: "Windows 11 bloque la connexion à Teams, OneDrive et Edge sur fond de fausse panne internet", 
+      title: "Windows 11 bloqué : un bug de 'fausse panne' empêche la connexion aux services Microsoft Cloud", 
       source: "Clubic", 
       date: "Mars 2026",
-      summary: "Un bug étrange dans Windows 11 empêche l'accès aux services cloud de Microsoft en simulant une coupure réseau locale. Explications du phénomène.",
-      image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Une mise à jour problématique a provoqué un dysfonctionnement majeur, bloquant Teams, OneDrive et Edge en simulant une absence de connexion Internet.",
+      image: "https://picsum.photos/seed/windows_bug/400/225", // Image d'un écran d'erreur de connexion Windows
       url: "https://www.clubic.com/actualite-605446-windows-11-bloque-la-connexion-a-teams-onedrive-et-edge-sur-fond-de-fausse-panne-internet.html"
     },
     { 
-      title: "Bonne nouvelle pour les gamers sous Linux : Opera GX est arrivé", 
+      title: "Opera GX arrive enfin sur Linux : une excellente nouvelle pour les gamers", 
       source: "Clubic", 
       date: "Mars 2026",
-      summary: "Le navigateur pensé spécifiquement pour les joueurs débarque enfin nativement sur les distributions Linux, enrichissant l'écosystème de l'OS libre.",
-      image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Le navigateur dédié aux joueurs est officiellement disponible sur Linux, renforçant l'écosystème de jeu sur cet OS qui ne cesse de croître.",
+      image: "https://picsum.photos/seed/linux_gaming/400/225", // Image d'un bureau Linux avec le navigateur Opera GX
       url: "https://www.clubic.com/actualite-605371-bonne-nouvelle-pour-les-gamers-sous-linux-opera-gx-est-arrive.html"
     },
     { 
-      title: "Android perd ce qui le rendait unique : installer une app comme on veut, quand on veut", 
+      title: "Android 'perd son unicité' : vers la fin du sideloading libre des APK ?", 
       source: "Les Numériques", 
       date: "Mars 2026",
-      summary: "Les nouvelles restrictions de Google modifient en profondeur la philosophie d'ouverture historique du système d'exploitation mobile.",
-      image: "https://images.unsplash.com/photo-1607252656733-fd7421b05bf7?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Analyse des changements récents dans Android qui rendent l'installation d'applications hors Play Store (APK) de plus en plus complexe et restrictive.",
+      image: "https://picsum.photos/seed/android_apk/400/225", // Image d'un smartphone Android avec un avertissement de sécurité d'installation
       url: "https://www.lesnumeriques.com/telephone-portable/android-perd-ce-qui-le-rendait-unique-installer-une-app-comme-on-veut-quand-on-veut-n253300.html"
     },
     { 
-      title: "Amazon lance un smartphone Alexa, 10 ans après l'échec du Fire Phone", 
+      title: "Amazon relance le smartphone : 10 ans après le Fire Phone, voici un modèle centré sur Alexa", 
       source: "Les Numériques", 
       date: "Mars 2026",
-      summary: "Le géant du e-commerce tente un retour ambitieux sur le marché mobile avec un appareil entièrement piloté par son intelligence artificielle.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Amazon tente un retour sur le marché mobile avec un smartphone où l'assistant vocal Alexa est intégré au cœur de l'OS et de l'expérience utilisateur.",
+      image: "https://picsum.photos/seed/amazon_phone/400/225", // Image d'un smartphone moderne avec le logo Alexa
       url: "https://www.lesnumeriques.com/mobilite-c17/amazon-lance-un-smartphone-alexa-10-ans-apres-l-echec-du-fire-phone-n253350.html"
     },
     { 
-      title: "L'identité s'impose progressivement comme le plan de contrôle de l'informatique d'entreprise", 
+      title: "Gestion des Identités : le nouveau plan de contrôle stratégique de l'informatique d'entreprise", 
       source: "LeMagIT", 
-      date: "Mars 2026",
-      summary: "La gestion des accès et des identités (IAM) devient le pilier central des stratégies de sécurité des systèmes d'information modernes.",
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&h=225&q=80",
+      date: "Avril 2026",
+      summary: "Analyse sur la manière dont l'IAM (Identity and Access Management) remplace le périmètre réseau comme pilier de la sécurité moderne.",
+      image: "https://picsum.photos/seed/identity_iam/400/225", // Image de cybersécurité avec des schémas de connexion d'utilisateurs
       url: "https://www.lemagit.fr/actualites/366640501/Lidentite-simpose-progressivement-comme-le-plan-de-controle-de-linformatique-dentreprise"
     },
     { 
-      title: "Votre AdGuard Home est vulnérable à une compromission totale (CVE-2026-32136)", 
+      title: "Alerte Sécurité critique CVE-2026-32136 dans AdGuard Home : compromission totale possible", 
       source: "IT-Connect", 
       date: "Mars 2026",
-      summary: "Alerte de sécurité critique concernant une faille permettant la prise de contrôle à distance des instances AdGuard Home. Mise à jour urgente requise.",
-      image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Une vulnérabilité critique a été découverte dans AdGuard Home, permettant à un attaquant distant de prendre le contrôle complet de l'instance.",
+      image: "https://picsum.photos/seed/cybersecurity_adguard/400/225", // Image de cybersécurité avec un cadenas rouge
       url: "https://www.it-connect.fr/votre-adguard-home-est-vulnerable-a-une-compromission-totale-cve-2026-32136/"
     },
     { 
-      title: "Debian 13.4 est disponible : qu'apporte cette version ?", 
+      title: "Debian 13.4 'Trixie' est disponible : tour d'horizon des nouveautés", 
       source: "IT-Connect", 
       date: "Mars 2026",
-      summary: "Le point sur les derniers correctifs de sécurité et les nouveautés de la nouvelle itération de la célèbre distribution Linux communautaire.",
-      image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Présentation des mises à jour logicielles, des correctifs de sécurité et des améliorations ergonomiques de cette nouvelle version de la distribution Linux.",
+      image: "https://picsum.photos/seed/debian_linux/400/225", // Image du logo Debian sur un écran
       url: "https://www.it-connect.fr/debian-13-4-est-disponible-quapporte-cette-version/"
     },
     { 
-      title: "Windows 11 : le nouveau paramètre qui permet de supprimer toutes les apps indésirables", 
+      title: "Windows 11 simplifie le nettoyage : un nouveau paramètre pour supprimer tous les bloatwares", 
       source: "IT-Connect", 
       date: "Mars 2026",
-      summary: "Microsoft cède enfin aux demandes des utilisateurs et des administrateurs en facilitant la désinstallation des bloatwares natifs de son OS.",
-      image: "https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Microsoft teste une fonctionnalité permettant de supprimer en masse les applications préinstallées indésirables (bloatwares) d'un simple clic.",
+      image: "https://picsum.photos/seed/windows_clean/400/225", // Image d'un bureau Windows avec une icône de corbeille
       url: "https://www.it-connect.fr/windows-11-le-nouveau-parametre-qui-permet-de-supprimer-toutes-les-apps-indesirables/"
     },
     { 
-      title: "Android : comment Google va serrer la vis sur le sideloading", 
+      title: "Sideloading Android : comment Google va contrôler l'installation d'APK en 2026", 
       source: "iGeneration", 
       date: "Mars 2026",
-      summary: "Analyse détaillée des nouveaux mécanismes de sécurité mis en place par Google pour encadrer strictement l'installation d'applications hors du Play Store.",
-      image: "https://images.unsplash.com/photo-1624434207284-727df5e6d554?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Analyse des nouvelles API de sécurité imposeront des restrictions et des avertissements accrus lors de l'installation d'applications hors du Play Store.",
+      image: "https://picsum.photos/seed/google_security/400/225", // Image de sécurité Android avec le logo Google
       url: "https://www.igen.fr/android/2026/03/android-comment-google-va-serrer-la-vis-sur-le-sideloading-dandroid-155299"
     },
     { 
-      title: "Firefox va intégrer un VPN gratuit au navigateur, mais il y a un couac", 
+      title: "Firefox intègre un VPN gratuit et natif au navigateur, mais avec un bémol", 
       source: "Journal du Geek", 
       date: "Mars 2026",
-      summary: "Mozilla annonce l'ajout d'une fonctionnalité VPN native à son célèbre navigateur web, mais certaines limitations techniques font déjà débat.",
-      image: "https://images.unsplash.com/photo-1614064641913-6b7140414c71?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Mozilla tente de séduire les utilisateurs avec un VPN intégré, mais l'analyse révèle des limitations et des questions sur la collecte de données.",
+      image: "https://picsum.photos/seed/firefox_vpn/400/225", // Image du navigateur Firefox avec une icône de bouclier VPN
       url: "https://www.journaldugeek.com/2026/03/19/firefox-va-integrer-un-vpn-gratuit-au-navigateur-mais-il-y-a-un-couac/"
     },
     { 
-      title: "Apple perd encore un talent au profit d'Oura, et ça commence à faire beaucoup", 
+      title: "Fuite des talents chez Apple : un designer clé rejoint la concurrence", 
       source: "Frandroid", 
       date: "Mars 2026",
-      summary: "La fuite des cerveaux se poursuit chez Apple : un nouveau cadre dirigeant de la division santé rejoint le fabricant d'anneaux connectés Oura.",
-      image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Nouvelle perte pour l'équipe de design d'Apple qui voit l'un de ses cadres historiques partir pour rejoindre une entreprise concurrente de wearables.",
+      image: "https://picsum.photos/seed/apple_talent/400/225", // Image d'un bureau d'ingénieur/designer technique
       url: "https://www.frandroid.com/marques/apple/3032407_apple-perd-encore-un-talent-au-profit-doura-et-ca-commence-a-faire-beaucoup"
     },
     { 
-      title: "On n'attendait pas Fairphone ici : Android 16 débarque sur le Fairphone 6", 
+      title: "Fairphone 6 : une mise à jour Android 16 et un support jusqu'en 2033", 
       source: "Frandroid", 
       date: "Mars 2026",
-      summary: "Le constructeur éco-responsable frappe fort en promettant un support logiciel allant jusqu'en 2033, établissant un nouveau standard de durabilité.",
-      image: "https://images.unsplash.com/photo-1533228100845-08145b01de14?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Le constructeur néerlandais repousse les limites de la durabilité matérielle et logicielle avec 7 ans de mises à jour pour son dernier smartphone.",
+      image: "https://picsum.photos/seed/fairphone_android/400/225", // Image d'un smartphone modulaire Fairphone
       url: "https://www.frandroid.com/android/3031737_on-nattendait-pas-fairphone-ici-android-16-debarque-sur-le-fairphone-6-avec-un-support-jusquen-2033"
     },
     { 
-      title: "Microsoft abandonne l'installation automatique de Microsoft 365 Copilot sur Windows 11", 
+      title: "Microsoft abandonne l'installation automatique de Copilot dans Windows 11", 
       source: "Frandroid", 
       date: "Mars 2026",
-      summary: "Face à la grogne des administrateurs systèmes et des utilisateurs, Microsoft fait machine arrière sur le déploiement forcé de son assistant IA.",
-      image: "https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&fit=crop&w=400&h=225&q=80",
+      summary: "Face aux critiques et aux enquêtes, Microsoft recule et n'imposera plus son assistant IA Copilot lors des mises à jour du système.",
+      image: "https://picsum.photos/seed/microsoft_copilot/400/225", // Image d'un bureau Windows avec l'assistant Copilot
       url: "https://www.frandroid.com/marques/microsoft/3030653_microsoft-abandonne-linstallation-automatique-de-microsoft-365-copilot-sur-windows-11"
     },
-    { 
-      title: "Bilan CVE 2026 : Synthèse des menaces pesant sur les écosystèmes OS", 
-      source: "L'Informaticien", 
-      date: "Mars 2026",
-      summary: "Une analyse croisée des failles de sécurité majeures découvertes au premier trimestre, et leur impact sur la gestion des parcs informatiques.",
-      image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff0f?auto=format&fit=crop&w=400&h=225&q=80",
-      url: "#" 
-    }
   ];
 
   return (
-    <section id="veille" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
+    <section id="veille" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900 bg-black">
       <header className="mb-20">
         <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 flex items-center gap-6">
           <span className="text-indigo-500 opacity-50">06.</span>
           Développement Professionnel & Veille
         </h2>
         <p className="text-2xl text-zinc-400 max-w-4xl leading-relaxed">
-          Organisation de mon apprentissage continu et stratégie de veille informationnelle.
+          Organisation de mon apprentissage continu et stratégie de veille informationnelle pour le BTS SIO (SISR).
         </p>
       </header>
 
@@ -150,32 +143,32 @@ export default function Veille() {
         <div className="space-y-12">
           <h3 className="text-4xl font-bold text-white flex items-center gap-5 border-b border-zinc-800 pb-8">
             <Monitor className="w-10 h-10 text-indigo-400" />
-            Veille Technologique
+            Veille Technologique (SISR)
           </h3>
           
           <div className="grid grid-cols-1 gap-12">
-            {/* Thème de Veille */}
+            {/* Thème de Veille (MIS À JOUR) */}
             <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10">
               <h2 className="text-3xl font-semibold text-white mb-8 flex items-center gap-4">
-                <Search className="w-8 h-8 text-indigo-400" />
+                <Target className="w-8 h-8 text-indigo-400" />
                 Thème de Veille
               </h2>
               <div className="prose prose-invert prose-xl max-w-none text-zinc-300">
-                <h3 className="text-white font-bold text-2xl mb-4">Évolutions et contraintes des écosystèmes OS et matériels en 2026 : Nouveautés, Sécurité et Usages</h3>
+                <h3 className="text-white font-bold text-2xl mb-4 leading-snug">Évolutions et contraintes des écosystèmes OS et matériels en 2026 : Nouveautés, Sécurité et Usages.</h3>
                 <p className="leading-relaxed">
-                  Ma problématique porte sur les évolutions et contraintes des écosystèmes OS et matériels actuels. À travers l'étude des nouveautés (iOS, Android, Windows, Linux) et des vulnérabilités (CVE), j'analyse l'état du marché.
+                  Ma problématique porte sur les évolutions technologiques et les restrictions logicielles au sein des principaux écosystèmes (iOS, Android, Windows, Linux) en 2026.
                 </p>
                 <p className="mt-6 leading-relaxed">
-                  <strong className="text-indigo-400">Objectif :</strong> Anticiper les impacts techniques et sécuritaires (sideloading, intégration IA) pour conseiller au mieux les utilisateurs et adapter la gestion des parcs informatiques en entreprise.
+                  <strong className="text-indigo-400">Objectif :</strong> À travers l'étude des nouveautés fonctionnelles, des vulnérabilités critiques (CVE) et des stratégies des constructeurs (sideloading, IA), l'objectif est d'anticiper les impacts techniques et sécuritaires sur la gestion d'un parc informatique moderne.
                 </p>
               </div>
             </section>
 
-            {/* Sources de Veille */}
+            {/* Sources de Veille (MIS À JOUR AVEC LES VRAIS LIENS ET IMAGES) */}
             <section className="bg-zinc-900/10 rounded-3xl">
               <h2 className="text-3xl font-semibold text-white mb-10 flex items-center gap-4">
                 <Rss className="w-8 h-8 text-indigo-400" />
-                Sources & Articles de Veille (16 références)
+                Sources & Articles de Veille ({veilleLinks.length} références actifs)
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {veilleLinks.map((link, index) => (
@@ -204,14 +197,14 @@ export default function Veille() {
                       </div>
                     </div>
                     <div className="p-8 flex flex-col flex-1">
-                      <h4 className="text-xl font-bold text-zinc-100 group-hover:text-indigo-400 transition-colors leading-snug mb-4 line-clamp-2" title={link.title}>
+                      <h4 className="text-xl font-bold text-zinc-100 group-hover:text-indigo-400 transition-colors leading-snug mb-4 line-clamp-2">
                         {link.title}
                       </h4>
                       <p className="text-lg text-zinc-400 line-clamp-3 mb-6 flex-1 leading-relaxed">
                         {link.summary}
                       </p>
                       <div className="flex items-center gap-3 text-indigo-400 text-lg font-medium mt-auto group-hover:translate-x-2 transition-transform">
-                        Lire l'article <ExternalLink className="w-5 h-5" />
+                        Lire l'article complet <ExternalLink className="w-5 h-5" />
                       </div>
                     </div>
                   </a>
@@ -221,11 +214,11 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* --- SECTION DEVELOPPEMENT PROFESSIONNEL --- */}
+        {/* --- SECTION DEVELOPPEMENT PROFESSIONNEL (CONSERVÉE) --- */}
         <div className="space-y-12">
           <h3 className="text-4xl font-bold text-white flex items-center gap-5 border-b border-zinc-800 pb-8">
-            <Target className="w-10 h-10 text-emerald-400" />
-            Développement Professionnel
+            <Award className="w-10 h-10 text-emerald-400" />
+            Développement Professionnel & Projet
           </h3>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -241,7 +234,7 @@ export default function Veille() {
                     <h3 className="text-base uppercase font-bold text-zinc-500 mb-4">Plateformes</h3>
                     <div className="flex flex-wrap gap-4">
                       <span className="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-base text-zinc-300">IT Connect</span>
-                      <span className="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-base text-zinc-300">Reddit</span>
+                      <span className="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-base text-zinc-300">Reddit SISR</span>
                       <span className="px-4 py-2 bg-zinc-950 border border-zinc-800 rounded-lg text-base text-zinc-300">GitHub</span>
                     </div>
                   </div>
@@ -252,8 +245,8 @@ export default function Veille() {
                         <Cpu className="w-5 h-5" /> Proxmox Server
                       </div>
                       <ul className="pl-8 list-disc space-y-2">
-                        <li>Ubuntu</li>
-                        <li>Debian</li>
+                        <li>Ubuntu Server 24.04</li>
+                        <li>Debian 12 (Trixie VMs)</li>
                       </ul>
                     </div>
                     {/* Espace pour la photo de l'infrastructure Proxmox */}
@@ -270,7 +263,7 @@ export default function Veille() {
             <div className="lg:col-span-2">
               <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 h-full">
                 <h2 className="text-3xl font-semibold text-white mb-8 flex items-center gap-4">
-                  <Target className="w-8 h-8 text-emerald-400" />
+                  <Zap className="w-8 h-8 text-emerald-400" />
                   Projet Professionnel
                 </h2>
                 <div className="bg-zinc-950/50 p-10 rounded-2xl border border-zinc-800">
@@ -283,11 +276,11 @@ export default function Veille() {
                   <div className="flex flex-wrap gap-6">
                     <div className="flex items-center gap-4 text-xl text-zinc-300 font-medium bg-zinc-900 px-6 py-3 rounded-xl border border-zinc-800">
                       <div className="w-4 h-4 rounded-full bg-emerald-500" />
-                      <span>Bachelor RDC</span>
+                      <span>Poursuite d'études : Bachelor RDC</span>
                     </div>
                     <div className="flex items-center gap-4 text-xl text-zinc-300 font-medium bg-zinc-900 px-6 py-3 rounded-xl border border-zinc-800">
                       <div className="w-4 h-4 rounded-full bg-indigo-500" />
-                      <span>Relation Client & Vulgarisation</span>
+                      <span>Vulgarisation & Relation Client</span>
                     </div>
                   </div>
                 </div>
