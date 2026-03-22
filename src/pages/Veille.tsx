@@ -227,7 +227,7 @@ export default function Veille() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
-                          const target = e.target as HTMLImageElement;
+                          const target = e.target;
                           target.src = `https://picsum.photos/seed/art${index + 20}/400/225`;
                         }}
                       />
@@ -256,6 +256,45 @@ export default function Veille() {
                 ))}
               </div>
             </section>
+
+            {/* --- SECTION SITES DE VEILLE (ICÔNES) --- */}
+            <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 mt-12">
+              <h3 className="text-2xl font-semibold text-white mb-8 flex items-center justify-center gap-3">
+                <Globe className="w-7 h-7 text-indigo-400" />
+                Sources surveillées au quotidien
+              </h3>
+              
+              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+                {[
+                  { name: "Clubic", domain: "clubic.com" },
+                  { name: "Les Numériques", domain: "lesnumeriques.com" },
+                  { name: "IT Connect", domain: "it-connect.fr" },
+                  { name: "Le MagIT", domain: "lemagit.fr" },
+                  { name: "iGeneration", domain: "igen.fr" },
+                  { name: "Journal du Geek", domain: "journaldugeek.com" },
+                ].map((site) => (
+                  <a
+                    key={site.name}
+                    href={`https://www.${site.domain}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col items-center gap-4"
+                  >
+                    <div className="w-20 h-20 rounded-2xl bg-zinc-950 border border-zinc-800 flex items-center justify-center p-4 group-hover:-translate-y-2 group-hover:border-indigo-500 transition-all duration-300 shadow-xl group-hover:shadow-indigo-500/20">
+                      <img
+                        src={`https://www.google.com/s2/favicons?domain=${site.domain}&sz=128`}
+                        alt={`Logo ${site.name}`}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-zinc-400 group-hover:text-indigo-300 transition-colors">
+                      {site.name}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </section>
+
           </div>
         </div>
 
