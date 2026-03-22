@@ -83,7 +83,6 @@ export default function Veille() {
       url: "https://www.igen.fr/android/2026/03/android-comment-google-va-serrer-la-vis-sur-le-sideloading-dandroid-155299"
     },
     {
-      // 🔄 Corrigé : cadenas / protection VPN navigateur
       title: "Firefox va intégrer un VPN gratuit au navigateur, mais il y a un couac",
       source: "Journal du Geek",
       date: "19 mars 2026",
@@ -114,7 +113,15 @@ export default function Veille() {
       summary: "Face au mécontentement généralisé et à la montée du terme 'Microslop', Microsoft suspend temporairement le déploiement forcé de l'app Microsoft 365 Copilot sur Windows 11. Un recul qui illustre les limites de l'imposition de l'IA à marche forcée.",
       image: "https://support.microsoft.com/images/en-us/a800a3f9-f73c-46b0-9b08-774017436549",
       url: "https://www.frandroid.com/marques/microsoft/3030653_microsoft-abandonne-linstallation-automatique-de-microsoft-365-copilot-sur-windows-11"
-    }
+    },
+    {
+          title: "Proton Born & Private : réservez une adresse e-mail sécurisée pour votre enfant",
+          source: "IT-Connect",
+          date: "21 mars 2026",
+          summary: "Proton lance une initiative pour permettre aux parents de réserver une adresse e-mail chiffrée pour leurs enfants. Une stratégie qui mise sur la protection de la vie privée dès le plus jeune âge au sein de l'écosystème Proton.",
+          image: "https://www.justgeek.fr/wp-content/uploads/2026/03/proton-mail-born-private.webp",
+          url: "https://www.it-connect.fr/proton-born-private-reservez-une-adresse-e-mail-pour-votre-enfant/"
+        }   
   ];
 
   return (
