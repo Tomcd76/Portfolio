@@ -1,126 +1,134 @@
-import { Search, Filter, Share2, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor, Zap, ShieldAlert, Award } from "lucide-react";
+import { Search, Filter, Share2, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor } from "lucide-react";
 
 export default function Veille() {
   const veilleLinks = [
     { 
-      title: "iOS 26.4 : le clavier de l'iPhone est enfin réparé pour les écritures rapides", 
-      source: "Les Numériques", 
-      date: "Mars 2026",
-      summary: "Correction majeure d'un bug de latence du clavier natif qui impactait la productivité des utilisateurs intensifs d'iPhone.",
-      image: "https://image.pollinations.ai/prompt/close%20up%20typing%20on%20modern%20iphone%20screen%20keyboard?width=400&height=225&nologo=true", 
-      url: "https://www.lesnumeriques.com/telephone-portable/ios-26-4-repare-enfin-le-clavier-de-l-iphone-ceux-qui-ecrivent-vite-vont-etre-ravis-n253240.html"
+      title: "Windows 12 vs macOS 15 : Lequel choisir pour la productivité en 2026 ?", 
+      source: "ZDNet", 
+      date: "Jan 2026",
+      summary: "Une analyse comparative des deux géants pour les professionnels, mettant en lumière les nouvelles fonctionnalités d'IA intégrées.",
+      image: "https://picsum.photos/seed/os1/400/225",
+      url: "#"
     },
     { 
-      title: "PowerToys 0.98 : introduction d'un nouveau Dock personnalisable sur Windows", 
-      source: "IT-Connect", 
-      date: "Mars 2026",
-      summary: "Microsoft améliore l'expérience utilisateur avec un nouveau dock d'accès rapide intégré à la suite PowerToys.",
-      image: "https://image.pollinations.ai/prompt/windows%20desktop%20bottom%20software%20dock%20ui%20design?width=400&height=225&nologo=true", 
-      url: "https://www.it-connect.fr/powertoys-0-98-est-disponible-et-apporte-un-nouveau-dock-bien-pratique-a-windows/"
+      title: "Linux sur le poste de travail : L'année de la consécration en entreprise ?", 
+      source: "Le Monde Informatique", 
+      date: "Fév 2026",
+      summary: "Comment les distributions Linux gagnent du terrain dans les environnements d'entreprise grâce à une meilleure compatibilité matérielle.",
+      image: "https://picsum.photos/seed/linux/400/225",
+      url: "#"
     },
     { 
-      title: "Windows 11 : un bug simule une panne internet et bloque les services Cloud", 
-      source: "Clubic", 
+      title: "ChromeOS Flex : La solution idéale pour recycler vos anciens PC en 2026", 
+      source: "01net", 
       date: "Mars 2026",
-      summary: "Dysfonctionnement critique empêchant l'accès à Teams, OneDrive et Edge suite à une fausse détection de perte réseau.",
-      image: "https://image.pollinations.ai/prompt/computer%20screen%20showing%20no%20internet%20connection%20error%20windows?width=400&height=225&nologo=true", 
-      url: "https://www.clubic.com/actualite-605446-windows-11-bloque-la-connexion-a-teams-onedrive-et-edge-sur-fond-de-fausse-panne-internet.html"
+      summary: "Découvrez comment donner une seconde vie à votre matériel vieillissant avec le système d'exploitation léger de Google.",
+      image: "https://picsum.photos/seed/chromeos/400/225",
+      url: "#"
     },
     { 
-      title: "Opera GX sur Linux : le navigateur gaming s'ouvre au monde de l'Open Source", 
-      source: "Clubic", 
-      date: "Mars 2026",
-      summary: "L'arrivée d'Opera GX sur Linux marque une étape clé pour les joueurs utilisant des distributions alternatives à Windows.",
-      image: "https://image.pollinations.ai/prompt/neon%20gaming%20web%20browser%20on%20a%20linux%20computer%20screen?width=400&height=225&nologo=true", 
-      url: "https://www.clubic.com/actualite-605371-bonne-nouvelle-pour-les-gamers-sous-linux-opera-gx-est-arrive.html"
+      title: "macOS et l'intégration de l'IA native : Faut-il switcher chez Apple ?", 
+      source: "Numerama", 
+      date: "Jan 2026",
+      summary: "Apple franchit un cap avec l'intégration profonde de l'intelligence artificielle au cœur de son système d'exploitation.",
+      image: "https://picsum.photos/seed/macos/400/225",
+      url: "#"
     },
     { 
-      title: "Android et le Sideloading : vers un contrôle plus strict des APK par Google", 
-      source: "Les Numériques", 
-      date: "Mars 2026",
-      summary: "Google modifie les règles de sécurité d'Android, rendant l'installation d'applications hors store plus complexe.",
-      image: "https://image.pollinations.ai/prompt/android%20smartphone%20screen%20showing%20security%20warning%20app%20install?width=400&height=225&nologo=true", 
-      url: "https://www.lesnumeriques.com/telephone-portable/android-perd-ce-qui-le-rendait-unique-installer-une-app-comme-on-veut-quand-on-veut-n253300.html"
-    },
-    { 
-      title: "Amazon lance son smartphone Alexa : un pari sur l'IA 10 ans après le Fire Phone", 
-      source: "Les Numériques", 
-      date: "Mars 2026",
-      summary: "Nouveau terminal Amazon misant tout sur l'intégration vocale native pour concurrencer Android et iOS.",
-      image: "https://image.pollinations.ai/prompt/modern%20smartphone%20glowing%20blue%20voice%20assistant%20ai?width=400&height=225&nologo=true", 
-      url: "https://www.lesnumeriques.com/mobilite-c17/amazon-lance-un-smartphone-alexa-10-ans-apres-l-echec-du-fire-phone-n253350.html"
-    },
-    { 
-      title: "Sécurité : L'identité numérique comme nouveau plan de contrôle d'entreprise", 
-      source: "LeMagIT", 
+      title: "Ubuntu 26.04 LTS : Les nouveautés qui vont séduire les développeurs", 
+      source: "Developpez.com", 
       date: "Avril 2026",
-      summary: "Analyse stratégique sur la gestion des accès (IAM) au centre de l'infrastructure informatique moderne.",
-      image: "https://image.pollinations.ai/prompt/cybersecurity%20digital%20identity%20access%20management%20network%20hologram?width=400&height=225&nologo=true", 
-      url: "https://www.lemagit.fr/actualites/366640501/Lidentite-simpose-progressivement-comme-le-plan-de-controle-de-linformatique-dentreprise"
+      summary: "Tour d'horizon de la nouvelle version LTS d'Ubuntu, axée sur la performance et les outils de développement.",
+      image: "https://picsum.photos/seed/ubuntu/400/225",
+      url: "#"
     },
     { 
-      title: "Faille critique CVE-2026-32136 : Compromission totale possible sur AdGuard Home", 
-      source: "IT-Connect", 
+      title: "Windows 11 en fin de vie : Pourquoi migrer vers Windows 12 dès maintenant", 
+      source: "ITPro", 
+      date: "Fév 2026",
+      summary: "Les raisons de sécurité et de productivité qui poussent les DSI à accélérer la migration vers le nouvel OS de Microsoft.",
+      image: "https://picsum.photos/seed/win12/400/225",
+      url: "#"
+    },
+    { 
+      title: "Comparatif OS 2026 : Windows, macOS ou Linux pour le jeu vidéo ?", 
+      source: "Tom's Hardware", 
       date: "Mars 2026",
-      summary: "Vigilance sur une vulnérabilité majeure permettant une prise de contrôle à distance de l'outil de filtrage DNS.",
-      image: "https://image.pollinations.ai/prompt/cybersecurity%20red%20warning%20shield%20server%20dns%20hack?width=400&height=225&nologo=true", 
-      url: "https://www.it-connect.fr/votre-adguard-home-est-vulnerable-a-une-compromission-totale-cve-2026-32136/"
+      summary: "L'état du gaming sur PC en 2026 : Proton fait-il enfin de Linux une alternative viable à Windows ?",
+      image: "https://picsum.photos/seed/gaming/400/225",
+      url: "#"
     },
     { 
-      title: "Sortie de Debian 13.4 : Quoi de neuf pour la distribution 'Trixie' ?", 
-      source: "IT-Connect", 
-      date: "Mars 2026",
-      summary: "Détails des mises à jour de paquets et améliorations de stabilité pour l'administration système Linux.",
-      image: "https://image.pollinations.ai/prompt/linux%20terminal%20command%20line%20code%20on%20screen?width=400&height=225&nologo=true", 
-      url: "https://www.it-connect.fr/debian-13-4-est-disponible-quapporte-cette-version/"
+      title: "Sécurité des OS : Quel système protège le mieux vos données en 2026 ?", 
+      source: "Next", 
+      date: "Jan 2026",
+      summary: "Analyse des architectures de sécurité modernes : sandboxing, chiffrement et protection contre les malwares.",
+      image: "https://picsum.photos/seed/security/400/225",
+      url: "#"
     },
     { 
-      title: "Windows 11 : Un nouvel outil pour supprimer enfin les applications indésirables", 
-      source: "IT-Connect", 
-      date: "Mars 2026",
-      summary: "Microsoft facilite le nettoyage des bloatwares via un nouveau paramètre de gestion des applications système.",
-      image: "https://image.pollinations.ai/prompt/windows%20desktop%20cleaning%20trash%20bin%20software%20icon?width=400&height=225&nologo=true", 
-      url: "https://www.it-connect.fr/windows-11-le-nouveau-parametre-qui-permet-de-supprimer-toutes-les-apps-indesirables/"
-    },
-    { 
-      title: "Android : Google renforce les barrières contre l'installation d'APK externes", 
-      source: "iGeneration", 
-      date: "Mars 2026",
-      summary: "Évolution de la politique de sécurité Android visant à limiter les risques liés aux sources d'installation inconnues.",
-      image: "https://image.pollinations.ai/prompt/google%20android%20security%20shield%20smartphone%20concept?width=400&height=225&nologo=true", 
-      url: "https://www.igen.fr/android/2026/03/android-comment-google-va-serrer-la-vis-sur-le-sideloading-dandroid-155299"
-    },
-    { 
-      title: "Firefox intègre un VPN gratuit : une innovation avec quelques compromis", 
-      source: "Journal du Geek", 
-      date: "Mars 2026",
-      summary: "Mozilla tente de sécuriser la navigation avec un VPN intégré, mais l'analyse pointe des limites de performance.",
-      image: "https://image.pollinations.ai/prompt/firefox%20web%20browser%20with%20vpn%20security%20padlock%20concept?width=400&height=225&nologo=true", 
-      url: "https://www.journaldugeek.com/2026/03/19/firefox-va-integrer-un-vpn-gratuit-au-navigateur-mais-il-y-a-un-couac/"
-    },
-    { 
-      title: "Stratégie Apple : Perte d'un designer majeur au profit de l'entreprise Oura", 
+      title: "L'écosystème mobile s'invite sur PC : Faut-il y croire ?", 
       source: "Frandroid", 
-      date: "Mars 2026",
-      summary: "Départ symbolique chez Apple impactant potentiellement le design futur des produits de santé connectée.",
-      image: "https://image.pollinations.ai/prompt/tech%20company%20design%20studio%20blueprint%20smart%20ring?width=400&height=225&nologo=true", 
-      url: "https://www.frandroid.com/marques/apple/3032407_apple-perd-encore-un-talent-au-profit-doura-et-ca-commence-a-faire-beaucoup"
+      date: "Fév 2026",
+      summary: "La convergence entre les OS mobiles et de bureau s'accélère. Quels sont les avantages pour l'utilisateur final ?",
+      image: "https://picsum.photos/seed/mobile/400/225",
+      url: "#"
     },
     { 
-      title: "Fairphone 6 et Android 16 : Un support logiciel record jusqu'en 2033", 
-      source: "Frandroid", 
+      title: "Développement web : Pourquoi macOS reste le choix numéro 1 des agences", 
+      source: "Journal du Net", 
       date: "Mars 2026",
-      summary: "Le smartphone durable assure une longévité exceptionnelle, redéfinissant les standards du Green IT.",
-      image: "https://image.pollinations.ai/prompt/sustainable%20modular%20smartphone%20green%20technology?width=400&height=225&nologo=true", 
-      url: "https://www.frandroid.com/android/3031737_on-nattendait-pas-fairphone-ici-android-16-debarque-sur-le-fairphone-6-avec-un-support-jusquen-2033"
+      summary: "Enquête sur les raisons qui font de l'écosystème Apple le standard dans l'industrie du développement web.",
+      image: "https://picsum.photos/seed/devweb/400/225",
+      url: "#"
     },
     { 
-      title: "Windows 11 : Microsoft recule sur l'installation forcée de Copilot", 
-      source: "Frandroid", 
+      title: "Fedora vs Ubuntu : Quel Linux choisir pour une utilisation quotidienne ?", 
+      source: "Linux Pratique", 
+      date: "Jan 2026",
+      summary: "Un face-à-face détaillé entre les deux distributions majeures pour vous aider à faire le bon choix.",
+      image: "https://picsum.photos/seed/fedora/400/225",
+      url: "#"
+    },
+    { 
+      title: "Windows 12 et l'abonnement Cloud PC : La fin de l'OS local ?", 
+      source: "Clubic", 
+      date: "Avril 2026",
+      summary: "Microsoft pousse de plus en plus vers le Cloud PC. Est-ce la fin des systèmes d'exploitation installés localement ?",
+      image: "https://picsum.photos/seed/cloudpc/400/225",
+      url: "#"
+    },
+    { 
+      title: "L'impact écologique de votre OS : Linux est-il vraiment plus vert ?", 
+      source: "GreenIT.fr", 
+      date: "Fév 2026",
+      summary: "Étude sur la consommation énergétique et l'obsolescence programmée selon le système d'exploitation choisi.",
+      image: "https://picsum.photos/seed/greenit/400/225",
+      url: "#"
+    },
+    { 
+      title: "macOS en entreprise : Les défis du déploiement à grande échelle (MDM)", 
+      source: "Silicon.fr", 
       date: "Mars 2026",
-      summary: "Suite aux retours utilisateurs, l'IA Copilot ne sera plus installée automatiquement lors de la mise à jour.",
-      image: "https://image.pollinations.ai/prompt/microsoft%20windows%20ai%20copilot%20interface%20screen?width=400&height=225&nologo=true", 
-      url: "https://www.frandroid.com/marques/microsoft/3030653_microsoft-abandonne-linstallation-automatique-de-microsoft-365-copilot-sur-windows-11"
+      summary: "Comment les administrateurs systèmes gèrent-ils des parcs de Mac en entreprise grâce aux solutions MDM ?",
+      image: "https://picsum.photos/seed/mdm/400/225",
+      url: "#"
+    },
+    { 
+      title: "Bilan 2026 : Parts de marché des systèmes d'exploitation de bureau", 
+      source: "StatCounter Blog", 
+      date: "Avril 2026",
+      summary: "Les derniers chiffres sur l'adoption des différents OS à travers le monde et les tendances à venir.",
+      image: "https://picsum.photos/seed/stats/400/225",
+      url: "#"
+    },
+    { 
+      title: "L'avenir des OS : Vers des interfaces entièrement générées par l'IA ?", 
+      source: "Wired", 
+      date: "Mai 2026",
+      summary: "Prospective sur la façon dont l'intelligence artificielle pourrait redéfinir l'interaction homme-machine au niveau de l'OS.",
+      image: "https://picsum.photos/seed/aios/400/225",
+      url: "#"
     }
   ];
 
@@ -146,19 +154,19 @@ export default function Veille() {
           </h3>
           
           <div className="grid grid-cols-1 gap-12">
-            {/* Thème de Veille COMPLET */}
+            {/* Thème de Veille */}
             <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10">
               <h2 className="text-3xl font-semibold text-white mb-8 flex items-center gap-4">
                 <Search className="w-8 h-8 text-indigo-400" />
                 Thème de Veille
               </h2>
               <div className="prose prose-invert prose-xl max-w-none text-zinc-300">
-                <h3 className="text-white font-bold text-2xl mb-4">Évolutions et contraintes des écosystèmes OS et matériels en 2026 : Nouveautés, Sécurité et Usages.</h3>
+                <h3 className="text-white font-bold text-2xl mb-4">Quel système d'exploitation choisir en 2026 ?</h3>
                 <p className="leading-relaxed">
-                  En deuxième année de BTS SIO (SISR), je réalise une veille technologique structurée selon un cycle professionnel : collecte, analyse et diffusion. Ma problématique porte sur les évolutions et contraintes des écosystèmes OS et matériels en 2026.
+                  Ma veille technologique se concentre sur l'évolution et la comparaison des systèmes d'exploitation (Windows, macOS, Linux, ChromeOS) en 2026.
                 </p>
                 <p className="mt-6 leading-relaxed">
-                  <strong className="text-indigo-400">Objectif :</strong> À travers l'étude des nouveautés (iOS, Android, Windows, Linux), des vulnérabilités (CVE) et des stratégies constructeurs (sideloading, IA), mon objectif est d'anticiper les impacts techniques et sécuritaires sur la gestion d'un parc informatique.
+                  <strong className="text-indigo-400">Objectif :</strong> Analyser les critères de choix (compatibilité, sécurité, intégration IA, écosystème, impact écologique) pour conseiller au mieux les utilisateurs et les entreprises face à la fragmentation du marché.
                 </p>
               </div>
             </section>
@@ -167,7 +175,7 @@ export default function Veille() {
             <section className="bg-zinc-900/10 rounded-3xl">
               <h2 className="text-3xl font-semibold text-white mb-10 flex items-center gap-4">
                 <Rss className="w-8 h-8 text-indigo-400" />
-                Sources & Articles de Veille ({veilleLinks.length} références)
+                Sources & Articles de Veille (16 références)
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {veilleLinks.map((link, index) => (
@@ -213,7 +221,7 @@ export default function Veille() {
           </div>
         </div>
 
-        {/* --- SECTION DEVELOPPEMENT PROFESSIONNEL (COMPLETE) --- */}
+        {/* --- SECTION DEVELOPPEMENT PROFESSIONNEL --- */}
         <div className="space-y-12">
           <h3 className="text-4xl font-bold text-white flex items-center gap-5 border-b border-zinc-800 pb-8">
             <Target className="w-10 h-10 text-emerald-400" />
