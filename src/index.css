@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  /* Masquer le curseur par défaut sur les écrans avec souris */
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
+
+  html {
+    background-color: #09090b; /* zinc-950 */
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-100 antialiased font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-medium;
+  }
+
+  button, a {
+    @apply select-none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Forme du curseur en mode sombre : Cercle */
+.cursor-shape {
+  border-radius: 50%;
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-700 rounded-full hover:bg-zinc-600 transition-colors;
+}
