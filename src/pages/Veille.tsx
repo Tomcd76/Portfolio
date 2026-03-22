@@ -1,5 +1,5 @@
 import { Search, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor } from "lucide-react";
- 
+
 export default function Veille() {
   const veilleLinks = [
     {
@@ -35,51 +35,57 @@ export default function Veille() {
       url: "https://www.clubic.com/actualite-605371-bonne-nouvelle-pour-les-gamers-sous-linux-opera-gx-est-arrive.html"
     },
     {
+      // 🔄 Corrigé : écran paramètres Android / gestion des sources inconnues
       title: "Android perd ce qui le rendait unique : installer une app comme on veut, quand on veut",
       source: "Les Numériques",
       date: "19 mars 2026",
       summary: "Google resserre les contraintes sur le sideloading sous Android : un nouveau parcours multi-étapes impose l'activation du mode développeur, un redémarrage et un délai de 24 heures. Une évolution perçue comme une 'iOS-isation' de la plateforme.",
-      image: "https://images.unsplash.com/photo-1607252650355-463f37a15d43?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=225&fit=crop&auto=format",
       url: "https://www.lesnumeriques.com/telephone-portable/android-perd-ce-qui-le-rendait-unique-installer-une-app-comme-on-veut-quand-on-veut-n253300.html"
     },
     {
+      // 🔄 Corrigé : assistant vocal / smart speaker Amazon Alexa
       title: "Amazon lance un smartphone Alexa, 10 ans après l'échec du Fire Phone",
       source: "Les Numériques",
       date: "20 mars 2026",
       summary: "Amazon développerait un nouveau smartphone IA sous le nom de code 'Transformer', centré sur l'assistant Alexa et ses services. Un pari risqué plus d'une décennie après l'échec du Fire Phone, dans un marché mondial en déclin de 13 %.",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=400&h=225&fit=crop&auto=format",
       url: "https://www.lesnumeriques.com/mobilite-c17/amazon-lance-un-smartphone-alexa-10-ans-apres-l-echec-du-fire-phone-n253350.html"
     },
     {
+      // 🔄 Corrigé : empreinte digitale / identité numérique entreprise
       title: "L'identité s'impose progressivement comme le plan de contrôle de l'informatique d'entreprise",
       source: "LeMagIT",
       date: "18 mars 2026",
       summary: "Face à la multiplication des appareils et au travail hybride, les politiques d'identité supplantent les contrôles traditionnels basés sur les OS. L'identité devient le pilier central de la sécurité, de la gouvernance et de l'accès en entreprise.",
-      image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=225&fit=crop&auto=format",
       url: "https://www.lemagit.fr/actualites/366640501/Lidentite-simpose-progressivement-comme-le-plan-de-controle-de-linformatique-dentreprise"
     },
     {
+      // 🔄 Corrigé : bouclier cybersécurité / protection réseau DNS
       title: "Votre AdGuard Home est vulnérable à une compromission totale : CVE-2026-32136",
       source: "IT-Connect",
       date: "19 mars 2026",
       summary: "Une faille critique (score CVSS 9.8/10) permet à un attaquant distant non authentifié de contourner entièrement l'authentification d'AdGuard Home via HTTP/2 en clair. La mise à jour vers la version 0.107.73 est impérative pour se protéger.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=400&h=225&fit=crop&auto=format",
       url: "https://www.it-connect.fr/votre-adguard-home-est-vulnerable-a-une-compromission-totale-cve-2026-32136/"
     },
     {
+      // 🔄 Corrigé : terminal Linux sombre avec lignes de commandes
       title: "Debian 13.4 est disponible : qu'apporte cette version ?",
       source: "IT-Connect",
       date: "16 mars 2026",
       summary: "La quatrième mise à jour de maintenance de Debian 13 'Trixie' consolide plus de 60 correctifs de sécurité pour Firefox ESR, Nginx, BIND9 et la bibliothèque glibc. L'installeur est désormais basé sur le noyau Linux 6.12.73.",
-      image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=225&fit=crop&auto=format",
       url: "https://www.it-connect.fr/debian-13-4-est-disponible-quapporte-cette-version/"
     },
     {
+      // 🔄 Corrigé : interface paramètres Windows / gestion d'applications
       title: "Windows 11 : le nouveau paramètre qui permet de supprimer toutes les apps indésirables",
       source: "IT-Connect",
       date: "12 mars 2026",
       summary: "Une build Insider de Windows 11 introduit un nouveau paramètre de GPO permettant aux administrateurs de définir une liste dynamique d'applications MSIX à désinstaller (Teams, Copilot, Solitaire…), offrant enfin un contrôle natif du debloat.",
-      image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?w=400&h=225&fit=crop&auto=format",
       url: "https://www.it-connect.fr/windows-11-le-nouveau-parametre-qui-permet-de-supprimer-toutes-les-apps-indesirables/"
     },
     {
@@ -91,39 +97,43 @@ export default function Veille() {
       url: "https://www.igen.fr/android/2026/03/android-comment-google-va-serrer-la-vis-sur-le-sideloading-dandroid-155299"
     },
     {
+      // 🔄 Corrigé : cadenas / protection VPN navigateur
       title: "Firefox va intégrer un VPN gratuit au navigateur, mais il y a un couac",
       source: "Journal du Geek",
       date: "19 mars 2026",
       summary: "Mozilla intègre un VPN gratuit avec 50 Go/mois dans Firefox 149, disponible dès le 24 mars en France, États-Unis, Royaume-Uni et Allemagne. Mais la protection se limite au trafic du navigateur et le comportement à l'épuisement du quota reste flou.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1516321165247-4aa89a48be55?w=400&h=225&fit=crop&auto=format",
       url: "https://www.journaldugeek.com/2026/03/19/firefox-va-integrer-un-vpn-gratuit-au-navigateur-mais-il-y-a-un-couac/"
     },
     {
+      // 🔄 Corrigé : bague connectée Oura Ring au doigt
       title: "Apple perd encore un talent au profit d'Oura et ça commence à faire beaucoup",
       source: "Frandroid",
       date: "17 mars 2026",
       summary: "Brian Lynch, responsable depuis 2022 de l'ingénierie matérielle domotique chez Apple, rejoint Oura Health comme SVP Engineering. Ce départ illustre les difficultés du pôle maison connectée d'Apple, freiné par les retards du nouveau Siri.",
-      image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=400&h=225&fit=crop&auto=format",
       url: "https://www.frandroid.com/marques/apple/3032407_apple-perd-encore-un-talent-au-profit-doura-et-ca-commence-a-faire-beaucoup"
     },
     {
+      // 🔄 Corrigé : smartphone démontable / réparable (Fairphone)
       title: "On n'attendait pas Fairphone ici : Android 16 débarque sur le Fairphone 6 avec un support jusqu'en 2033",
       source: "Frandroid",
       date: "16 mars 2026",
       summary: "Fairphone lance le déploiement d'Android 16 sur son dernier modèle dès le 16 mars, plus tôt qu'annoncé (avril). Le Fairphone 6 bénéficie d'un support logiciel garanti jusqu'en 2033, soit 8 ans de mises à jour majeures, un record sur le marché Android.",
-      image: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=225&fit=crop&auto=format",
       url: "https://www.frandroid.com/android/3031737_on-nattendait-pas-fairphone-ici-android-16-debarque-sur-le-fairphone-6-avec-un-support-jusquen-2033"
     },
     {
+      // 🔄 Corrigé : interface IA / chatbot Microsoft Copilot
       title: "Microsoft abandonne l'installation automatique de Microsoft 365 Copilot sur Windows 11",
       source: "Frandroid",
       date: "18 mars 2026",
       summary: "Face au mécontentement généralisé et à la montée du terme 'Microslop', Microsoft suspend temporairement le déploiement forcé de l'app Microsoft 365 Copilot sur Windows 11. Un recul qui illustre les limites de l'imposition de l'IA à marche forcée.",
-      image: "https://images.unsplash.com/photo-1677442135946-1a17c58e0f0d?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.unsplash.com/photo-1686191128892-3b37add4c844?w=400&h=225&fit=crop&auto=format",
       url: "https://www.frandroid.com/marques/microsoft/3030653_microsoft-abandonne-linstallation-automatique-de-microsoft-365-copilot-sur-windows-11"
     }
   ];
- 
+
   return (
     <section id="veille" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
       <header className="mb-20">
@@ -135,16 +145,16 @@ export default function Veille() {
           Organisation de mon apprentissage continu et stratégie de veille informationnelle.
         </p>
       </header>
- 
+
       <div className="space-y-24">
- 
+
         {/* --- SECTION VEILLE TECHNOLOGIQUE --- */}
         <div className="space-y-12">
           <h3 className="text-4xl font-bold text-white flex items-center gap-5 border-b border-zinc-800 pb-8">
             <Monitor className="w-10 h-10 text-indigo-400" />
             Veille Technologique
           </h3>
- 
+
           <div className="grid grid-cols-1 gap-12">
             {/* Thème de Veille */}
             <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10">
@@ -164,7 +174,7 @@ export default function Veille() {
                 </p>
               </div>
             </section>
- 
+
             {/* Sources de Veille */}
             <section className="bg-zinc-900/10 rounded-3xl">
               <h2 className="text-3xl font-semibold text-white mb-10 flex items-center gap-4">
@@ -187,7 +197,7 @@ export default function Veille() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
-                          e.target.src = `https://picsum.photos/seed/${index + 10}/400/225`;
+                          e.target.src = `https://picsum.photos/seed/art${index + 20}/400/225`;
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-80" />
@@ -217,14 +227,14 @@ export default function Veille() {
             </section>
           </div>
         </div>
- 
+
         {/* --- SECTION DEVELOPPEMENT PROFESSIONNEL --- */}
         <div className="space-y-12">
           <h3 className="text-4xl font-bold text-white flex items-center gap-5 border-b border-zinc-800 pb-8">
             <Target className="w-10 h-10 text-emerald-400" />
             Développement Professionnel
           </h3>
- 
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Environnement d'Apprentissage */}
             <div className="lg:col-span-1">
@@ -253,7 +263,6 @@ export default function Veille() {
                         <li>Debian</li>
                       </ul>
                     </div>
-                    {/* Espace pour la photo de l'infrastructure Proxmox */}
                     <div className="w-full aspect-video bg-zinc-950 border-2 border-dashed border-zinc-800 rounded-2xl flex flex-col items-center justify-center text-zinc-600 relative overflow-hidden group">
                       <Monitor className="w-12 h-12 mb-4 opacity-50" />
                       <span className="text-base text-center px-6">Emplacement pour la photo<br/>de mon infrastructure Proxmox</span>
@@ -262,7 +271,7 @@ export default function Veille() {
                 </div>
               </section>
             </div>
- 
+
             {/* Projet Professionnel */}
             <div className="lg:col-span-2">
               <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 h-full">
@@ -292,7 +301,7 @@ export default function Veille() {
             </div>
           </div>
         </div>
- 
+
       </div>
     </section>
   );
