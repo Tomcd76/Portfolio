@@ -233,7 +233,7 @@ export const MOCK_PROJECTS: Project[] = [
     difficulties: "Problème d'installation d'AdGuard, le port 53 était déjà utilisé par le service systemd-resolved. Résolu en désactivant le service systemd-resolved.",
     results: "Réduction significative du trafic indésirable. Navigation plus rapide et sécurisée pour les clients du réseau.",
     analysis: "Le filtrage DNS est une première ligne de défense très efficace et peu coûteuse en ressources.",
-    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Comment installer et configurer AdGuard Home pour sécuriser votre réseau Windows Server .pdf" }],
+    evidence: [{ label: "Documentation technique- (PDF)", type: "document", url: "/Comment installer et configurer AdGuard Home pour sécuriser votre réseau Windows Server .pdf" }],
     skills: ["regles", "deployer", "exploiter"] 
   },
 
@@ -306,7 +306,6 @@ export const MOCK_PROJECTS: Project[] = [
     objectives: "Haute disponibilité et mobilité des utilisateurs",
     description: "Dans le cadre d'un projet de deuxième année portant sur la haute disponibilité et la mobilité des utilisateurs, j'ai déployé une infrastructure de profils itinérants sécurisée. L'objectif est de dissocier les données et paramètres des utilisateurs de leurs postes physiques pour les centraliser sur le serveur SRV-AD-01. Cette solution permet à un collaborateur de retrouver son environnement de travail complet (Bureau, Documents, AppData) sur n'importe quel ordinateur du domaine labo-it.local, garantissant ainsi la continuité de service en cas de panne matérielle d'un client.",
     tools: ["Windows Server", "Active Directory", "Profils Itinérants", "GPO"],
-    skills: ["continuite", "deployer", "habilitation"],
     evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Configuration des profils itinérants sous Windows Server 2019.pdf" }]
   },
   {
@@ -317,7 +316,6 @@ export const MOCK_PROJECTS: Project[] = [
     objectives: "Interconnexion complète du réseau national",
     description: "Dans le cadre du projet portant sur l'infrastructure du groupe ADA, j'ai réalisé l'interconnexion complète de leur réseau national, leur permettant une communication bidirectionnelle sécurisée entre les sièges sociaux.",
     tools: ["Linux Debian", "Routage", "Réseau"],
-    skills: ["deployer", "exploiter", "planifier"],
     evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Interconnexion et routage de l'infrastructure ADA.pdf" }]
   }
 ];
