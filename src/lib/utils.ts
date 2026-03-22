@@ -401,7 +401,7 @@ Objectif : Se déplacer d'une borne à une autre pour vérifier que le signal ne
     objectives: "Haute disponibilité et mobilité des utilisateurs",
     description: "Dans le cadre d'un projet de deuxième année portant sur la haute disponibilité et la mobilité des utilisateurs, j'ai déployé une infrastructure de profils itinérants sécurisée. L'objectif est de dissocier les données et paramètres des utilisateurs de leurs postes physiques pour les centraliser sur le serveur SRV-AD-01. Cette solution permet à un collaborateur de retrouver son environnement de travail complet (Bureau, Documents, AppData) sur n'importe quel ordinateur du domaine labo-it.local, garantissant ainsi la continuité de service en cas de panne matérielle d'un client.",
     tools: ["Windows Server", "Active Directory", "Profils Itinérants", "GPO"],
-    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Centralisation_profils_itinerants.pdf" }]
+    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Configuration des profils itinérants sous Windows Server 2019.pdf" }]
   },
   {
     id: "scolaire_ada",
@@ -411,6 +411,6 @@ Objectif : Se déplacer d'une borne à une autre pour vérifier que le signal ne
     objectives: "Interconnexion complète du réseau national",
     description: "Dans le cadre du projet portant sur l'infrastructure du groupe ADA, j'ai réalisé l'interconnexion complète de leur réseau national, leur permettant une communication bidirectionnelle sécurisée entre les sièges sociaux.",
     tools: ["Linux Debian", "Routage", "Réseau"],
-    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Interconnexion_routage_ADA.pdf" }]
+    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Interconnexion et routage de l'infrastructure ADA.pdf" }]
   }
 ];
