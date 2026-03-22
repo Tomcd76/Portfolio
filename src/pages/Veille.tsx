@@ -1,4 +1,4 @@
-import { Search, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor, Download, FileText } from "lucide-react";
+import { Search, Rss, ExternalLink, BookOpen, Target, Cpu, Monitor, FileText } from "lucide-react";
 
 export default function Veille() {
   const veilleLinks = [
@@ -154,14 +154,15 @@ export default function Veille() {
                   Thème de Veille
                 </h2>
                 
-                {/* --- BOUTON DE TÉLÉCHARGEMENT PDF --- */}
+                {/* --- BOUTON POUR OUVRIR LE PDF DANS UN NOUVEL ONGLET --- */}
                 <a 
                   href="/Mise en place de ma veille technologique avec Feedly.pdf" 
-                  download="Mise en place de ma veille technologique avec Feedly.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 group shadow-lg shadow-indigo-500/20 active:scale-95"
                 >
-                  <Download className="w-5 h-5 group-hover:bounce" />
-                  Guide Méthodologique (PDF)
+                  <FileText className="w-5 h-5" />
+                  Consulter le Guide (PDF)
                 </a>
               </div>
 
@@ -202,7 +203,8 @@ export default function Veille() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
-                          e.target.src = `https://picsum.photos/seed/art${index + 20}/400/225`;
+                          const target = e.target as HTMLImageElement;
+                          target.src = `https://picsum.photos/seed/art${index + 20}/400/225`;
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent opacity-80" />
