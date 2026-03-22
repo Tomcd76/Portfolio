@@ -7,7 +7,7 @@ export default function Veille() {
       source: "Les Numériques",
       date: "19 mars 2026",
       summary: "Depuis iOS 26, les utilisateurs signalaient des lettres manquantes lors d'une frappe rapide. iOS 26.4, attendu fin mars, corrige enfin ce bug en améliorant la précision du clavier, après plus de six mois de réclamations.",
-      image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&h=225&fit=crop&auto=format",
+      image: "https://i0.wp.com/jvmag.ch/wp-content/uploads/2026/03/707141.webp?ssl=1",
       url: "https://www.lesnumeriques.com/telephone-portable/ios-26-4-repare-enfin-le-clavier-de-l-iphone-ceux-qui-ecrivent-vite-vont-etre-ravis-n253240.html"
     },
     {
@@ -15,7 +15,7 @@ export default function Veille() {
       source: "IT-Connect",
       date: "17 mars 2026",
       summary: "La version 0.98 de PowerToys introduit le Command Palette Dock, une barre secondaire personnalisable, ainsi qu'une refonte complète du gestionnaire de clavier en WinUI 3 et des améliorations de CursorWrap pour les configurations multi-écrans.",
-      image: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&h=225&fit=crop&auto=format",
+      image: "https://repository-images.githubusercontent.com/184456251/6fa0e600-b17f-11ea-9360-1f79417d8a69",
       url: "https://www.it-connect.fr/powertoys-0-98-est-disponible-et-apporte-un-nouveau-dock-bien-pratique-a-windows/"
     },
     {
@@ -23,7 +23,7 @@ export default function Veille() {
       source: "Clubic",
       date: "20 mars 2026",
       summary: "Après l'installation de la mise à jour KB5079473 du Patch Tuesday de mars 2026, certains utilisateurs ne peuvent plus se connecter à Teams, OneDrive, Edge, Word ou Copilot, malgré une connexion Internet active. Un correctif est attendu.",
-      image: "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=400&h=225&fit=crop&auto=format",
+      image: "https://img-19.commentcamarche.net/mt_p6ZNTNlURnhfNV5v8MXXhOvI=/480x270/smart/d298cf5df6cd49abae4ebcaa14a347a6/ccmcms-commentcamarche/32144634.png",
       url: "https://www.clubic.com/actualite-605446-windows-11-bloque-la-connexion-a-teams-onedrive-et-edge-sur-fond-de-fausse-panne-internet.html"
     },
     {
@@ -31,61 +31,47 @@ export default function Veille() {
       source: "Clubic",
       date: "20 mars 2026",
       summary: "Opera GX, le navigateur orienté gaming, débarque officiellement sur Linux avec ses fonctionnalités phares : limiteurs de RAM et réseau (GX Control), intégrations Discord et Twitch en sidebar, VPN gratuit sans logs et personnalisation avancée via GX Mods.",
-      image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=225&fit=crop&auto=format",
+      image: "https://cdn-production-opera-website.operacdn.com/staticfiles/assets/gx/images/eats-less-ram/gx-linux/gx-linux-og.5fdeea3990de.jpg",
       url: "https://www.clubic.com/actualite-605371-bonne-nouvelle-pour-les-gamers-sous-linux-opera-gx-est-arrive.html"
     },
     {
-      // 🔄 Corrigé : écran paramètres Android / gestion des sources inconnues
-      title: "Android perd ce qui le rendait unique : installer une app comme on veut, quand on veut",
-      source: "Les Numériques",
-      date: "19 mars 2026",
-      summary: "Google resserre les contraintes sur le sideloading sous Android : un nouveau parcours multi-étapes impose l'activation du mode développeur, un redémarrage et un délai de 24 heures. Une évolution perçue comme une 'iOS-isation' de la plateforme.",
-      image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=225&fit=crop&auto=format",
-      url: "https://www.lesnumeriques.com/telephone-portable/android-perd-ce-qui-le-rendait-unique-installer-une-app-comme-on-veut-quand-on-veut-n253300.html"
-    },
-    {
-      // 🔄 Corrigé : assistant vocal / smart speaker Amazon Alexa
       title: "Amazon lance un smartphone Alexa, 10 ans après l'échec du Fire Phone",
       source: "Les Numériques",
       date: "20 mars 2026",
       summary: "Amazon développerait un nouveau smartphone IA sous le nom de code 'Transformer', centré sur l'assistant Alexa et ses services. Un pari risqué plus d'une décennie après l'échec du Fire Phone, dans un marché mondial en déclin de 13 %.",
-      image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=400&h=225&fit=crop&auto=format",
+      image: "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/8847347/akrales_170712_1843_0012.jpg?quality=90&strip=all&crop=0,0,100,100",
       url: "https://www.lesnumeriques.com/mobilite-c17/amazon-lance-un-smartphone-alexa-10-ans-apres-l-echec-du-fire-phone-n253350.html"
     },
     {
-      // 🔄 Corrigé : empreinte digitale / identité numérique entreprise
       title: "L'identité s'impose progressivement comme le plan de contrôle de l'informatique d'entreprise",
       source: "LeMagIT",
       date: "18 mars 2026",
       summary: "Face à la multiplication des appareils et au travail hybride, les politiques d'identité supplantent les contrôles traditionnels basés sur les OS. L'identité devient le pilier central de la sécurité, de la gouvernance et de l'accès en entreprise.",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=225&fit=crop&auto=format",
+      image: "https://optimeo.com/wp-content/uploads/2024/06/ergonomie-ordinateur-portable.webp",
       url: "https://www.lemagit.fr/actualites/366640501/Lidentite-simpose-progressivement-comme-le-plan-de-controle-de-linformatique-dentreprise"
     },
     {
-      // 🔄 Corrigé : bouclier cybersécurité / protection réseau DNS
       title: "Votre AdGuard Home est vulnérable à une compromission totale : CVE-2026-32136",
       source: "IT-Connect",
       date: "19 mars 2026",
       summary: "Une faille critique (score CVSS 9.8/10) permet à un attaquant distant non authentifié de contourner entièrement l'authentification d'AdGuard Home via HTTP/2 en clair. La mise à jour vers la version 0.107.73 est impérative pour se protéger.",
-      image: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=400&h=225&fit=crop&auto=format",
+      image: "https://apps.umbrel.com/_next/image?url=https%3A%2F%2Fgetumbrel.github.io%2Fumbrel-apps-gallery%2Fadguard-home%2F1.jpg&w=3840&q=75",
       url: "https://www.it-connect.fr/votre-adguard-home-est-vulnerable-a-une-compromission-totale-cve-2026-32136/"
     },
     {
-      // 🔄 Corrigé : terminal Linux sombre avec lignes de commandes
       title: "Debian 13.4 est disponible : qu'apporte cette version ?",
       source: "IT-Connect",
       date: "16 mars 2026",
       summary: "La quatrième mise à jour de maintenance de Debian 13 'Trixie' consolide plus de 60 correctifs de sécurité pour Firefox ESR, Nginx, BIND9 et la bibliothèque glibc. L'installeur est désormais basé sur le noyau Linux 6.12.73.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=225&fit=crop&auto=format",
+      image: "https://www.zdnet.com/a/img/resize/7379faa71766a79d14bd44d94a5e2ca4abd5d31f/2025/08/11/0ce4acb6-336f-42b5-a73b-89c0de928aec/debian-13.jpg?auto=webp&width=1280",
       url: "https://www.it-connect.fr/debian-13-4-est-disponible-quapporte-cette-version/"
     },
     {
-      // 🔄 Corrigé : interface paramètres Windows / gestion d'applications
       title: "Windows 11 : le nouveau paramètre qui permet de supprimer toutes les apps indésirables",
       source: "IT-Connect",
       date: "12 mars 2026",
       summary: "Une build Insider de Windows 11 introduit un nouveau paramètre de GPO permettant aux administrateurs de définir une liste dynamique d'applications MSIX à désinstaller (Teams, Copilot, Solitaire…), offrant enfin un contrôle natif du debloat.",
-      image: "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?w=400&h=225&fit=crop&auto=format",
+      image: "https://www.pcworld.com/wp-content/uploads/2025/09/windows-11-update-header.jpg?quality=50&strip=all&w=1024",
       url: "https://www.it-connect.fr/windows-11-le-nouveau-parametre-qui-permet-de-supprimer-toutes-les-apps-indesirables/"
     },
     {
@@ -93,7 +79,7 @@ export default function Veille() {
       source: "iGeneration",
       date: "20 mars 2026",
       summary: "Google impose une vérification d'identité pour les développeurs distribuant des applications hors du Play Store, et un parcours complexe pour les utilisateurs avancés, incluant l'activation du mode développeur, un redémarrage et un délai d'attente de 24h.",
-      image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.frandroid.com/wp-content/uploads/2023/01/android-illustration-couleurs.jpg",
       url: "https://www.igen.fr/android/2026/03/android-comment-google-va-serrer-la-vis-sur-le-sideloading-dandroid-155299"
     },
     {
@@ -102,34 +88,31 @@ export default function Veille() {
       source: "Journal du Geek",
       date: "19 mars 2026",
       summary: "Mozilla intègre un VPN gratuit avec 50 Go/mois dans Firefox 149, disponible dès le 24 mars en France, États-Unis, Royaume-Uni et Allemagne. Mais la protection se limite au trafic du navigateur et le comportement à l'épuisement du quota reste flou.",
-      image: "https://images.unsplash.com/photo-1516321165247-4aa89a48be55?w=400&h=225&fit=crop&auto=format",
+      image: "https://i.ytimg.com/vi/kQmIo_N6orQ/maxresdefault.jpg",
       url: "https://www.journaldugeek.com/2026/03/19/firefox-va-integrer-un-vpn-gratuit-au-navigateur-mais-il-y-a-un-couac/"
     },
     {
-      // 🔄 Corrigé : bague connectée Oura Ring au doigt
       title: "Apple perd encore un talent au profit d'Oura et ça commence à faire beaucoup",
       source: "Frandroid",
       date: "17 mars 2026",
       summary: "Brian Lynch, responsable depuis 2022 de l'ingénierie matérielle domotique chez Apple, rejoint Oura Health comme SVP Engineering. Ce départ illustre les difficultés du pôle maison connectée d'Apple, freiné par les retards du nouveau Siri.",
-      image: "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=400&h=225&fit=crop&auto=format",
+      image: "https://images.frandroid.com/wp-content/uploads/2025/11/apple-iphone-pocket-and-issey-miyake-cinnamon-with-iphone-17-pro-grande.jpeg",
       url: "https://www.frandroid.com/marques/apple/3032407_apple-perd-encore-un-talent-au-profit-doura-et-ca-commence-a-faire-beaucoup"
     },
     {
-      // 🔄 Corrigé : smartphone démontable / réparable (Fairphone)
       title: "On n'attendait pas Fairphone ici : Android 16 débarque sur le Fairphone 6 avec un support jusqu'en 2033",
       source: "Frandroid",
       date: "16 mars 2026",
       summary: "Fairphone lance le déploiement d'Android 16 sur son dernier modèle dès le 16 mars, plus tôt qu'annoncé (avril). Le Fairphone 6 bénéficie d'un support logiciel garanti jusqu'en 2033, soit 8 ans de mises à jour majeures, un record sur le marché Android.",
-      image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=225&fit=crop&auto=format",
+      image: "https://eu-images.contentstack.com/v3/assets/blt3d4d54955bda84c0/blt29f81987fc45e009/685be68a86fe461c81bdf709/Fairphone_6.jpg?width=1280&auto=webp&quality=80&disable=upscale",
       url: "https://www.frandroid.com/android/3031737_on-nattendait-pas-fairphone-ici-android-16-debarque-sur-le-fairphone-6-avec-un-support-jusquen-2033"
     },
     {
-      // 🔄 Corrigé : interface IA / chatbot Microsoft Copilot
       title: "Microsoft abandonne l'installation automatique de Microsoft 365 Copilot sur Windows 11",
       source: "Frandroid",
       date: "18 mars 2026",
       summary: "Face au mécontentement généralisé et à la montée du terme 'Microslop', Microsoft suspend temporairement le déploiement forcé de l'app Microsoft 365 Copilot sur Windows 11. Un recul qui illustre les limites de l'imposition de l'IA à marche forcée.",
-      image: "https://images.unsplash.com/photo-1686191128892-3b37add4c844?w=400&h=225&fit=crop&auto=format",
+      image: "https://support.microsoft.com/images/en-us/a800a3f9-f73c-46b0-9b08-774017436549",
       url: "https://www.frandroid.com/marques/microsoft/3030653_microsoft-abandonne-linstallation-automatique-de-microsoft-365-copilot-sur-windows-11"
     }
   ];
