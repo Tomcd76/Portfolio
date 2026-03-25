@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -32,6 +33,7 @@ export interface SkillBlock {
   title: string;
   skills: { id: string; label: string }[];
 }
+
 
 export const SKILL_BLOCKS: SkillBlock[] = [
   {
@@ -93,6 +95,17 @@ export const SKILL_BLOCKS: SkillBlock[] = [
     ]
   }
 ];
+// --- COLLE LA FONCTION ICI ---
+const zoomWrapper = (imgHtml: string) => `
+  <div class="relative group cursor-zoom-in rounded-2xl overflow-hidden border border-zinc-800 hover:border-indigo-500/50 transition-all duration-300 my-12 mx-auto">
+    <div class="absolute inset-0 bg-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 pointer-events-none">
+      <div class="bg-zinc-950/80 p-4 rounded-full text-indigo-300 backdrop-blur-sm flex items-center gap-3 border border-indigo-500/20">
+        <span class="text-lg font-bold">Agrandir</span>
+      </div>
+    </div>
+    ${imgHtml}
+  </div>
+`;
 
 export const MOCK_PROJECTS: Project[] = [
   // --- FORMATION ---
@@ -1600,8 +1613,7 @@ https://dns.google/dns-query</code></pre>
         <p>Le cœur de ce projet a consisté à lier le stockage de fichiers à l'annuaire <strong>AD DS</strong> du serveur <strong>SRV-AD-01</strong>. L'objectif était de transformer un partage réseau en profils itinérants, tout en automatisant la gestion des droits via des GPO.</p>
 
         <h3 id="section-3-1">Architecture technique du projet</h3>
-        <p><img src="/Capt-pro/image1.png" alt="Architecture technique" /></p>
-
+        ${zoomWrapper('<img src="/Capt-pro/image1.png" alt="Architecture" class="w-full h-auto" />')}
         <h3 id="section-3-2">Étape 1 : Création et Partage du répertoire racine</h3>
         <ol>
           <li><strong>Création du dossier :</strong> Sur le disque C: du serveur, création du dossier Profils.</li>
@@ -1702,8 +1714,7 @@ https://dns.google/dns-query</code></pre>
 
         <h2 id="section-3">III. Description détaillée du travail réalisé</h2>
         <h3 id="section-3-1">1. Architecture Réseau</h3>
-        <p><img src="/Capt-pro/image12.png" alt="Architecture réseau ADA" /></p>
-
+        ${zoomWrapper('<img src="/Capt-pro/image12.png" alt="Architecture réseau ADA" class="w-full h-auto" />')}
         <h3 id="section-3-2">2. Activation du routage (IP Forwarding)</h3>
         <p>Activation persistante via la directive <code>post-up echo 1 > /proc/sys/net/ipv4/ip_forward</code> dans le fichier interfaces.</p>
 

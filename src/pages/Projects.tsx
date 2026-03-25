@@ -1,14 +1,30 @@
 import { MOCK_PROJECTS, SKILL_BLOCKS } from "@/lib/utils";
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, CheckCircle, FileText, List, Download, ArrowUp, ArrowDown, Building, Briefcase, ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
+import { ZoomIn, Maximize } from "lucide-react";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [showAlternance, setShowAlternance] = useState(false);
   const [showStage, setShowStage] = useState(false);
   const [formationPage, setFormationPage] = useState(0);
+  // 1. État pour stocker l'image à afficher en grand
+  const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
+  const docContentRef = useRef<HTMLDivElement>(null);
 
+  // 2. Détecteur de clic sur les images injectées
+  useEffect(() => {
+    const handleImageClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'IMG' && target.closest('.prose')) {
+        setFullScreenImage((target as HTMLImageElement).src);
+      }
+    };
+    const currentRef = docContentRef.current;
+    if (currentRef) currentRef.addEventListener('click', handleImageClick);
+    return () => { if (currentRef) currentRef.removeEventListener('click', handleImageClick); };
+  }, [selectedProject]);
   const modalScrollRef = useRef<HTMLDivElement>(null);
   const project = MOCK_PROJECTS.find((p) => p.id === selectedProject);
 
@@ -45,6 +61,33 @@ export default function Projects() {
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
+    <style>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+
+      {/* --- COPIE LE BLOC ICI --- */}
+      <AnimatePresence>
+        {fullScreenImage && (
+          <motion.div
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-lg flex flex-col justify-center items-center p-4 md:p-12 cursor-zoom-out"
+            onClick={() => setFullScreenImage(null)}
+          >
+            <motion.img 
+              initial={{ scale: 0.9 }} 
+              animate={{ scale: 1 }}
+              src={fullScreenImage} 
+              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl border border-zinc-800"
+            />
+            <p className="text-zinc-500 mt-6 text-xl flex items-center gap-3">
+               <Maximize className="w-5 h-5"/> Cliquez n'importe où pour fermer
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* SECTION 1: Activités Réalisées en Formation */}
       <section id="activites-formation" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
@@ -434,31 +477,33 @@ export default function Projects() {
                       </div>
                     </section>
                   )}
-
-                  {/* 4. Section Technique Universelle (AVEC MARGE DYNAMIQUE SÉPARÉE) */}
-                  {(project.steps || project.analysis) && (
-                    <section>
-                      <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
-                        <List className="w-8 h-8" /> 
-                        {project.type === 'scolaire' ? "Analyse détaillée du projet" : "Documentation Technique"}
-                      </h3>
-                      <div className="bg-zinc-900/20 border border-zinc-800 p-8 md:p-12 rounded-[2rem] overflow-hidden">
-                        <div 
-                          className={`prose prose-invert max-w-none text-zinc-300 text-xl md:text-2xl leading-relaxed 
-                          [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
-                          
-                          ${project.type === 'scolaire' ? '[&_h2]:scroll-mt-[340px] [&_h3]:scroll-mt-[340px]' 
-                            : '[&_h2]:scroll-mt-[280px] [&_h3]:scroll-mt-[280px]'}
-                          
-                          [&_h2]:text-4xl [&_h2]:font-bold [&_h2]:text-white [&_h2]:mb-8 [&_h2]:mt-12
-                          [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-indigo-300 [&_h3]:mb-4 [&_h3]:mt-8
-                          [&_pre]:overflow-x-auto [&_pre]:max-w-full [&_pre]:bg-zinc-950 [&_pre]:p-6 [&_pre]:rounded-2xl [&_pre]:border [&_pre]:border-zinc-800 [&_pre]:my-8 [&_code]:text-indigo-300 [&_code]:break-all [&_code]:bg-transparent 
-                          [&_img]:rounded-2xl [&_img]:border [&_img]:border-zinc-800 [&_img]:my-12 [&_img]:mx-auto`}
-                          dangerouslySetInnerHTML={{ __html: project.steps || project.analysis || "" }} 
-                        />
-                      </div>
-                    </section>
-                  )}
+                {/* 4. Section Technique Universelle (AVEC MARGE DYNAMIQUE SÉPARÉE ET ZOOM) */}
+              {(project.steps || project.analysis) && (
+                <section>
+                  <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
+                    <List className="w-8 h-8" /> 
+                    {project.type === 'scolaire' ? "Analyse détaillée du projet" : "Documentation Technique"}
+                  </h3>
+                  
+                  {/* La ref est placée ici pour surveiller les clics sur les images du contenu */}
+                  <div ref={docContentRef} className="bg-zinc-900/20 border border-zinc-800 p-8 md:p-12 rounded-[2rem] overflow-hidden">
+                    <div 
+                      className={`prose prose-invert max-w-none text-zinc-300 text-xl md:text-2xl leading-relaxed 
+                      [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
+                      
+                      ${project.type === 'scolaire' ? '[&_h2]:scroll-mt-[340px] [&_h3]:scroll-mt-[340px]' 
+                        : '[&_h2]:scroll-mt-[280px] [&_h3]:scroll-mt-[280px]'}
+                      
+                      [&_h2]:text-4xl [&_h2]:font-bold [&_h2]:text-white [&_h2]:mb-8 [&_h2]:mt-12
+                      [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-indigo-300 [&_h3]:mb-4 [&_h3]:mt-8
+                      [&_pre]:overflow-x-auto [&_pre]:max-w-full [&_pre]:bg-zinc-950 [&_pre]:p-6 [&_pre]:rounded-2xl [&_pre]:border [&_pre]:border-zinc-800 [&_pre]:my-8 [&_code]:text-indigo-300 [&_code]:break-all [&_code]:bg-transparent 
+                      /* Ajout du curseur loupe sur toutes les images */
+                      [&_img]:rounded-2xl [&_img]:border [&_img]:border-zinc-800 [&_img]:my-12 [&_img]:mx-auto [&_img]:cursor-zoom-in`}
+                      dangerouslySetInnerHTML={{ __html: project.steps || project.analysis || "" }} 
+                    />
+                  </div>
+                </section>
+              )}
 
                 </div>
 
