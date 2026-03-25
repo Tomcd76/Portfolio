@@ -152,7 +152,7 @@ export default function Veille() {
     <section id="veille" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
       <header className="mb-20">
         <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 flex items-center gap-6">
-          <span className="text-indigo-500 opacity-50">06.</span>
+          <span className="text-indigo-500 opacity-50">05.</span>
           Développement Professionnel & Veille
         </h2>
         <p className="text-2xl text-zinc-400 max-w-4xl leading-relaxed">

@@ -1,9 +1,23 @@
-import { ArrowRight, Download, Briefcase, GraduationCap, Layers, FileText } from "lucide-react";
+import { ArrowRight, Download, Briefcase, GraduationCap, Layers, FileText, Linkedin, Award, Eye } from "lucide-react";
 
 export default function Home() {
   const scrollToSection = (id: string, label: string) => {
     window.dispatchEvent(new CustomEvent('trigger-loading', { detail: { id, label } }));
   };
+
+  // Tableau mis à jour avec des descriptions uniques
+  const certifs = [
+    { 
+      name: "Certification PIX", 
+      file: "/Pix.pdf",
+      description: "Attestation officielle de maîtrise des outils numériques, du traitement de la donnée et de la sécurité informatique."
+    },
+    { 
+      name: "Certification Voltaire", 
+      file: "/Voltaire.pdf",
+      description: "Certification de référence attestant d'un haut niveau de maîtrise de l'orthographe et de la syntaxe française."
+    }
+  ];
 
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto">
@@ -21,24 +35,16 @@ export default function Home() {
               Administrateur Systèmes & Réseaux en devenir.<br/>
               Étudiant en BTS SIO option SISR.
             </p>
+            
             <div className="flex flex-wrap gap-6">
-              <a 
-                href="/CV.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-100 text-zinc-900 rounded-full text-lg font-medium hover:bg-white transition-colors"
-              >
-                <Download className="w-5 h-5" />
-                Consulter mon CV
+              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-100 text-zinc-900 rounded-full text-lg font-medium hover:bg-white transition-colors">
+                <Download className="w-5 h-5" /> Consulter mon CV
               </a>
-              <a 
-                href="/Tableau-de-Synthèse.pdf" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 border border-zinc-700 text-zinc-300 rounded-full text-lg font-medium hover:bg-zinc-800 hover:text-white transition-colors"
-              >
-                <FileText className="w-5 h-5" />
-                Tableau de Synthèse
+              <a href="/Tableau-de-Synthèse.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 border border-zinc-700 text-zinc-300 rounded-full text-lg font-medium hover:bg-zinc-800 hover:text-white transition-colors">
+                <FileText className="w-5 h-5" /> Tableau de Synthèse
+              </a>
+              <a href="https://www.linkedin.com/in/tom-marchand-chatelet-a779a035a/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 border border-zinc-700 text-zinc-300 rounded-full text-lg font-medium hover:bg-[#0077B5] hover:border-[#0077B5] hover:text-white transition-all group">
+                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" /> LinkedIn
               </a>
             </div>
           </div>
@@ -46,7 +52,7 @@ export default function Home() {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        {/* Section Ma Formation */}
+        {/* Ma Formation */}
         <div className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 hover:bg-zinc-900/50 transition-colors">
           <div className="flex items-center gap-4 mb-6">
             <div className="p-3 bg-indigo-500/10 rounded-xl">
@@ -54,7 +60,6 @@ export default function Home() {
             </div>
             <h2 className="text-3xl font-semibold text-white">Ma Formation</h2>
           </div>
-          
           <div className="space-y-6 mt-4">
             <div className="relative pl-5 border-l-2 border-indigo-500/50">
               <h3 className="text-white font-medium text-xl mb-1">Lycée Lamartine (Mâcon)</h3>
@@ -67,7 +72,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Section Contextes Professionnels */}
+        {/* Contextes Professionnels */}
         <div className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 hover:bg-zinc-900/50 transition-colors">
           <div className="flex items-center gap-4 mb-6">
             <div className="p-3 bg-emerald-500/10 rounded-xl">
@@ -75,7 +80,6 @@ export default function Home() {
             </div>
             <h2 className="text-3xl font-semibold text-white">Contextes Professionnels</h2>
           </div>
-          
           <div className="space-y-6 mt-4">
             <div className="relative pl-5 border-l-2 border-emerald-500/50">
               <h3 className="text-white font-medium text-xl mb-1">Hisis Informatique</h3>
@@ -83,9 +87,52 @@ export default function Home() {
             </div>
             <div className="relative pl-5 border-l-2 border-zinc-700">
               <h3 className="text-white font-medium text-xl mb-1">Gendarmerie Nationale (SOLC)</h3>
-              <p className="text-zinc-400 text-base">Alternance Année 1 • Lutte contre les cybermenaces (Bourg-en-Bresse, Ain)</p>
+              <p className="text-zinc-400 text-base">Alternance Année 1 • Lutte contre les cybermenaces</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* SECTION CERTIFICATIONS AJUSTÉE */}
+      <div className="mb-20">
+        <div className="flex items-center gap-6 mb-10">
+          <h3 className="text-3xl font-semibold text-white flex items-center gap-4">
+            <Award className="w-8 h-8 text-amber-400" />
+            Certifications
+          </h3>
+          <div className="h-px bg-zinc-800 flex-1" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {certifs.map((cert, index) => (
+            <div key={index} className="group relative bg-zinc-900/40 border border-zinc-800 rounded-3xl overflow-hidden hover:border-amber-500/30 transition-all">
+              <div className="flex flex-col sm:flex-row h-full">
+                <div className="w-full sm:w-48 h-48 bg-zinc-950 relative overflow-hidden">
+                  <iframe 
+                    src={`${cert.file}#toolbar=0&navpanes=0&scrollbar=0`} 
+                    className="w-full h-full border-none scale-150 origin-top pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity"
+                    title={cert.name}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+                </div>                
+                <div className="flex-1 p-6 flex flex-col justify-center">
+                  <h4 className="text-xl font-bold text-white mb-2">{cert.name}</h4>
+                  <p className="text-zinc-500 text-sm mb-6 leading-relaxed">
+                    {cert.description}
+                  </p>
+                  <a 
+                    href={cert.file} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-medium transition-colors"
+                  >
+                    <Eye className="w-4 h-4" />
+                    Voir le certificat complet
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -112,7 +159,7 @@ export default function Home() {
               <span className="text-indigo-400 font-mono text-lg">02</span>
               <ArrowRight className="w-6 h-6 text-zinc-600 group-hover:text-indigo-400 transition-colors" />
             </div>
-            <h4 className="font-medium text-zinc-200 mb-2 text-2xl leading-tight">Cadre Professionnel</h4>
+            <h4 className="font-medium text-zinc-200 mb-2 text-2xl leading-tight">Activités Professionnelles</h4>
           </button>
 
           <button onClick={() => scrollToSection('projets-scolaires', 'Projets Scolaires')} className="group text-left p-8 bg-zinc-900/20 border border-zinc-800 rounded-3xl hover:bg-zinc-900 hover:border-indigo-500/30 transition-all">

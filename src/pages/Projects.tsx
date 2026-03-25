@@ -27,7 +27,7 @@ export default function Projects() {
       <section id="activites-formation" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
         <header className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 flex items-center gap-6">
-            <span className="text-indigo-500 opacity-50">02.</span>
+            <span className="text-indigo-500 opacity-50">01.</span>
             Activités Réalisées en Formation
           </h2>
           <p className="text-2xl text-zinc-400 max-w-4xl leading-relaxed">
@@ -109,7 +109,7 @@ export default function Projects() {
       <section id="activites-pro" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
         <header className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 flex items-center gap-6">
-            <span className="text-indigo-500 opacity-50">03.</span>
+            <span className="text-indigo-500 opacity-50">02.</span>
             Activités en Milieu Professionnel
           </h2>
           <p className="text-2xl text-zinc-400 max-w-4xl leading-relaxed">
@@ -262,7 +262,7 @@ export default function Projects() {
       <section id="projets-scolaires" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
         <header className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 flex items-center gap-6">
-            <span className="text-indigo-500 opacity-50">04.</span>
+            <span className="text-indigo-500 opacity-50">03.</span>
             Projets Réalisés en Milieu Scolaire
           </h2>
           <p className="text-2xl text-zinc-400 max-w-4xl leading-relaxed">
