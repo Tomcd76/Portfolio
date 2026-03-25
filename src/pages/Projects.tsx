@@ -1,7 +1,7 @@
 import { MOCK_PROJECTS, SKILL_BLOCKS } from "@/lib/utils";
-import { useState } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, CheckCircle, FileText, Link as LinkIcon, ExternalLink, ChevronDown, ChevronUp, Briefcase, Building, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, CheckCircle, FileText, List, Download, ArrowUp, ArrowDown, Building, Briefcase, ChevronLeft, ChevronRight, ChevronUp, ChevronDown } from "lucide-react";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
@@ -9,6 +9,7 @@ export default function Projects() {
   const [showStage, setShowStage] = useState(false);
   const [formationPage, setFormationPage] = useState(0);
 
+  const modalScrollRef = useRef<HTMLDivElement>(null);
   const project = MOCK_PROJECTS.find((p) => p.id === selectedProject);
 
   const formationProjects = MOCK_PROJECTS.filter(p => p.type === 'formation');
@@ -17,13 +18,35 @@ export default function Projects() {
   const activitesFormation = formationProjects.slice(formationPage * ITEMS_PER_PAGE, (formationPage + 1) * ITEMS_PER_PAGE);
   
   const projetsScolaires = MOCK_PROJECTS.filter(p => p.type === 'scolaire');
-  
   const alternanceProjects = MOCK_PROJECTS.filter(p => p.type === 'alternance');
   const stageProjects = MOCK_PROJECTS.filter(p => p.type === 'stage');
 
+  // Navigation fluide (Boutons Haut/Bas)
+  const scrollToTop = () => modalScrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToBottom = () => modalScrollRef.current?.scrollTo({ top: modalScrollRef.current.scrollHeight, behavior: 'smooth' });
+
+  // Génération dynamique du sommaire (Compatible 'steps' et 'analysis')
+  const tocItems = useMemo(() => {
+    const contentToScan = project?.steps || project?.analysis;
+    if (!contentToScan) return [];
+    
+    const regex = /<(h[23])\s+id="([^"]+)"[^>]*>([\s\S]*?)<\/\1>/gi;
+    const matches = [...contentToScan.matchAll(regex)];
+    return matches.map(match => ({
+      level: match[1].toLowerCase(),
+      id: match[2],
+      title: match[3].replace(/<[^>]*>?/gm, '').trim()
+    }));
+  }, [project?.steps, project?.analysis]);
+
   return (
     <>
-      {/* SECTION 2: Activités Réalisées en Formation */}
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+
+      {/* SECTION 1: Activités Réalisées en Formation */}
       <section id="activites-formation" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
         <header className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 flex items-center gap-6">
@@ -61,11 +84,11 @@ export default function Projects() {
                   <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors leading-tight">
                     {p.title}
                   </h3>
-                  <p className="text-xl text-zinc-400 mb-8 leading-relaxed flex-1">
+                  <p className="text-xl text-zinc-400 mb-8 leading-relaxed flex-1 line-clamp-4">
                     {p.objectives}
                   </p>
                   <div className="mt-auto flex flex-wrap gap-3 w-full">
-                    {p.tools.slice(0, 4).map((tool) => (
+                    {p.tools?.slice(0, 4).map((tool) => (
                       <span key={tool} className="text-base text-zinc-300 bg-zinc-950 px-4 py-2 rounded-xl border border-zinc-800">
                         {tool}
                       </span>
@@ -105,7 +128,7 @@ export default function Projects() {
         )}
       </section>
 
-      {/* SECTION 3: Activités en Milieu Professionnel */}
+      {/* SECTION 2: Activités en Milieu Professionnel */}
       <section id="activites-pro" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
         <header className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 flex items-center gap-6">
@@ -113,7 +136,7 @@ export default function Projects() {
             Activités en Milieu Professionnel
           </h2>
           <p className="text-2xl text-zinc-400 max-w-4xl leading-relaxed">
-            Missions et responsabilités exercées dans un cadre professionnel (Alternance Gendarmerie Nationale & Stage Hisis Informatique).
+            Missions et responsabilités exercées dans un cadre professionnel (Alternance & Stage).
           </p>
         </header>
 
@@ -155,21 +178,15 @@ export default function Projects() {
                 >
                   <div className="p-10 md:p-12 space-y-12">
                     {alternanceProjects.map((p) => (
-                      <div 
-                        key={p.id}
-                        className="border-b border-zinc-800 pb-12 last:border-0 last:pb-0"
-                      >
+                      <div key={p.id} className="border-b border-zinc-800 pb-12 last:border-0 last:pb-0">
                         <h4 className="text-3xl font-bold text-blue-400 mb-4">{p.title}</h4>
                         <p className="text-2xl text-zinc-400 leading-relaxed mb-6">{p.objectives}</p>
                         <div className="flex flex-wrap gap-3">
-                          {p.skills.map(skillId => {
+                          {p.skills?.map(skillId => {
                             let skillLabel = skillId;
                             for (const block of SKILL_BLOCKS) {
                               const found = block.skills.find(s => s.id === skillId);
-                              if (found) {
-                                skillLabel = found.label;
-                                break;
-                              }
+                              if (found) { skillLabel = found.label; break; }
                             }
                             return (
                               <span key={skillId} className="px-4 py-2 bg-zinc-950 text-zinc-300 rounded-xl text-lg border border-zinc-800 flex items-center gap-2">
@@ -224,21 +241,15 @@ export default function Projects() {
                 >
                   <div className="p-10 md:p-12 space-y-12">
                     {stageProjects.map((p) => (
-                      <div 
-                        key={p.id}
-                        className="border-b border-zinc-800 pb-12 last:border-0 last:pb-0"
-                      >
+                      <div key={p.id} className="border-b border-zinc-800 pb-12 last:border-0 last:pb-0">
                         <h4 className="text-3xl font-bold text-emerald-400 mb-4">{p.title}</h4>
                         <p className="text-2xl text-zinc-400 leading-relaxed mb-6">{p.objectives}</p>
                         <div className="flex flex-wrap gap-3">
-                          {p.skills.map(skillId => {
+                          {p.skills?.map(skillId => {
                             let skillLabel = skillId;
                             for (const block of SKILL_BLOCKS) {
                               const found = block.skills.find(s => s.id === skillId);
-                              if (found) {
-                                skillLabel = found.label;
-                                break;
-                              }
+                              if (found) { skillLabel = found.label; break; }
                             }
                             return (
                               <span key={skillId} className="px-4 py-2 bg-zinc-950 text-zinc-300 rounded-xl text-lg border border-zinc-800 flex items-center gap-2">
@@ -258,7 +269,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* SECTION 4: Projets Réalisés en Milieu Scolaire */}
+      {/* SECTION 3: Projets Réalisés en Milieu Scolaire */}
       <section id="projets-scolaires" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto border-t border-zinc-900">
         <header className="mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 flex items-center gap-6">
@@ -266,7 +277,7 @@ export default function Projects() {
             Projets Réalisés en Milieu Scolaire
           </h2>
           <p className="text-2xl text-zinc-400 max-w-4xl leading-relaxed">
-            Projets d'envergure et ateliers de professionnalisation menés durant la formation.
+            Projets d'envergure menés durant la formation.
           </p>
         </header>
 
@@ -288,11 +299,11 @@ export default function Projects() {
                 <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors leading-tight">
                   {p.title}
                 </h3>
-                <p className="text-xl text-zinc-400 mb-8 leading-relaxed flex-1">
+                <p className="text-xl text-zinc-400 mb-8 leading-relaxed flex-1 line-clamp-3">
                   {p.objectives}
                 </p>
                 <div className="mt-auto flex flex-wrap gap-3 w-full">
-                  {p.tools.slice(0, 4).map((tool) => (
+                  {p.tools?.slice(0, 4).map((tool) => (
                     <span key={tool} className="text-base text-zinc-300 bg-zinc-950 px-4 py-2 rounded-xl border border-zinc-800">
                       {tool}
                     </span>
@@ -308,148 +319,171 @@ export default function Projects() {
         )}
       </section>
 
-      {/* MODAL DETAIL */}
+      {/* L'INTERFACE MODAL PRO */}
       <AnimatePresence>
         {selectedProject && project && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedProject(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            />
-            <motion.div
-              layoutId={`card-${selectedProject}`}
-              className="bg-zinc-950 border border-zinc-800 w-full max-w-[1400px] max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl relative z-10 flex flex-col"
-            >
-              {/* Header */}
-              <div className="sticky top-0 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 p-12 flex justify-between items-start z-20">
-                <div>
-                  <div className="flex items-center gap-6 mb-6">
-                    <span
-                      className={`px-5 py-2.5 rounded-full text-base uppercase font-bold tracking-wider ${
-                        project.type === "stage"
-                          ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                          : project.type === "alternance"
-                          ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
-                          : "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"
-                      }`}
-                    >
-                      {project.type}
-                    </span>
-                    <h2 className="text-5xl font-bold text-white">{project.title}</h2>
-                  </div>
-                  <p className="text-zinc-400 text-3xl">{project.context}</p>
-                </div>
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="p-5 bg-zinc-900 rounded-full hover:bg-zinc-800 transition-colors shrink-0 ml-8"
+          <div className="fixed inset-0 z-[100] flex justify-center items-stretch p-4 md:p-8 bg-black/90 backdrop-blur-md">
+            
+            {/* Conteneur principal */}
+            <div className="w-full max-w-[1800px] h-full flex flex-col xl:flex-row gap-6 relative z-10">
+              
+              {/* PANNEAU DE GAUCHE : Sommaire (Compatible steps ET analysis) */}
+              {(project.steps || project.analysis) && (
+                <motion.aside
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  className="hidden xl:flex w-[420px] shrink-0 bg-zinc-950 border border-zinc-800 rounded-[2rem] p-8 flex-col shadow-2xl overflow-y-auto no-scrollbar"
+                  style={{ maxHeight: '100%' }}
                 >
-                  <X className="w-10 h-10 text-zinc-400" />
-                </button>
-              </div>
-
-              {/* Content */}
-              <div className="p-12 space-y-20">
-                
-                {/* 1. Présentation courte */}
-                <section>
-                  <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
-                    <FileText className="w-8 h-8" /> Présentation de l'activité
-                  </h3>
-                  <div className="text-zinc-300 leading-relaxed text-3xl whitespace-pre-line">
-                    {project.description}
+                  <div className="flex items-center justify-between border-b border-zinc-800 pb-6 mb-6 sticky top-0 bg-zinc-950 z-10">
+                    <h4 className="text-2xl font-bold text-indigo-400 flex items-center gap-3">
+                      <List className="w-6 h-6" /> Sommaire
+                    </h4>
+                    {project.evidence?.find(ev => ev.type === 'document') && (
+                      <a 
+                        href={project.evidence.find(ev => ev.type === 'document')?.url} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="w-12 h-12 flex items-center justify-center bg-zinc-900 hover:bg-indigo-600 text-zinc-400 hover:text-white rounded-full transition-all shadow-lg" 
+                        title="Télécharger la documentation PDF"
+                      >
+                        <Download className="w-5 h-5" />
+                      </a>
+                    )}
                   </div>
-                </section>
 
-                {/* 2. Outils utilisés */}
-                {project.tools && project.tools.length > 0 && (
-                  <section>
-                    <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
-                      <Briefcase className="w-8 h-8" /> Outils utilisés
-                    </h3>
-                    <div className="flex flex-wrap gap-4">
-                      {project.tools.map((tool, idx) => (
-                        <div key={idx} className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 px-6 py-4 rounded-2xl">
-                          <div className="w-3 h-3 rounded-full bg-indigo-500" />
-                          <span className="text-2xl text-zinc-200 font-medium">{tool}</span>
-                        </div>
-                      ))}
+                  {/* Liste des ancres dynamique */}
+                  <nav className="flex flex-col gap-4">
+                    {tocItems.map((item, idx) => (
+                      <a
+                        key={idx}
+                        href={`#${item.id}`}
+                        className={`transition-colors block leading-snug group flex items-start gap-3 ${
+                          item.level === 'h2' 
+                            ? 'text-zinc-200 hover:text-indigo-400 font-bold text-lg mt-4' 
+                            : 'text-zinc-500 hover:text-indigo-300 pl-4 text-base font-medium'
+                        }`}
+                      >
+                        {item.level === 'h3' && <span className="text-zinc-700 group-hover:text-indigo-500 mt-1 shrink-0">└</span>}
+                        <span>{item.title}</span>
+                      </a>
+                    ))}
+                  </nav>
+                </motion.aside>
+              )}
+
+              {/* PANNEAU DE DROITE : Contenu Technique (Défilant Nativement) */}
+              <motion.main
+                layoutId={`card-${selectedProject}`}
+                ref={modalScrollRef}
+                className="flex-1 bg-zinc-950 border border-zinc-800 rounded-[2rem] shadow-2xl relative overflow-y-auto scroll-smooth flex flex-col no-scrollbar"
+              >
+                {/* Header fixe du contenu */}
+                <div className="sticky top-0 bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800 p-8 md:p-12 flex justify-between items-start z-30">
+                  <div className="pr-12">
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className={`px-4 py-2 rounded-full text-sm uppercase font-bold tracking-wider ${project.type === "stage" ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" : project.type === "alternance" ? "bg-blue-500/10 text-blue-400 border border-blue-500/20" : project.type === "scolaire" ? "bg-amber-500/10 text-amber-400 border border-amber-500/20" : "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"}`}>
+                        {project.type}
+                      </span>
                     </div>
-                  </section>
-                )}
+                    <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">{project.title}</h2>
+                    <p className="text-zinc-400 text-2xl mt-4">{project.context}</p>
+                  </div>
+                  <button onClick={() => setSelectedProject(null)} className="p-4 bg-zinc-900 rounded-full hover:bg-zinc-800 transition-colors shrink-0 shadow-lg">
+                    <X className="w-8 h-8 text-zinc-400" />
+                  </button>
+                </div>
 
-                {/* 3. Difficultés rencontrées et solutions apportées */}
-                {project.difficulties && (
+                {/* Corps de la documentation */}
+                <div className="p-8 md:p-16 space-y-24">
+                  
+                  {/* 1. Présentation */}
                   <section>
                     <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
-                      <CheckCircle className="w-8 h-8" /> Difficultés rencontrées et solutions apportées
+                      <FileText className="w-8 h-8" /> Présentation de l'activité
                     </h3>
-                    <div className="bg-zinc-900/50 border border-zinc-800 p-10 rounded-3xl">
-                      <p className="text-zinc-300 leading-relaxed text-3xl whitespace-pre-line">
-                        {project.difficulties}
-                      </p>
-                    </div>
+                    <div className="text-zinc-300 leading-relaxed text-2xl md:text-3xl whitespace-pre-line">{project.description}</div>
                   </section>
-                )}
 
-                {/* 4. Preuves (Documents & Liens uniquement) */}
-                {project.evidence.filter(ev => ev.type !== 'image').length > 0 && (
-                  <section>
-                    <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
-                      <LinkIcon className="w-8 h-8" /> Éléments de Preuve & Documentation Technique
-                    </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                      {project.evidence.filter(ev => ev.type !== 'image').map((ev, i) => (
-                        <a 
-                          key={i} 
-                          href={ev.url || "#"} 
-                          target={ev.url && ev.url !== "#" ? "_blank" : "_self"}
-                          rel="noreferrer"
-                          className="flex items-center gap-8 p-10 bg-zinc-900/50 border border-zinc-800 rounded-3xl hover:bg-zinc-900 hover:border-indigo-500/50 transition-all cursor-pointer group"
-                        >
-                          <div className="w-20 h-20 bg-zinc-950 border border-zinc-800 rounded-2xl flex items-center justify-center group-hover:border-indigo-500/50 transition-colors shrink-0">
-                            {ev.type === 'link' ? <LinkIcon className="w-10 h-10 text-indigo-400" /> : <FileText className="w-10 h-10 text-zinc-400 group-hover:text-indigo-400" />}
+                  {/* 2. Outils */}
+                  {project.tools && project.tools.length > 0 && (
+                    <section>
+                      <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
+                        <Briefcase className="w-8 h-8" /> Outils utilisés
+                      </h3>
+                      <div className="flex flex-wrap gap-4">
+                        {project.tools.map((tool, idx) => (
+                          <div key={idx} className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 px-6 py-4 rounded-2xl">
+                            <div className="w-3 h-3 rounded-full bg-indigo-500" />
+                            <span className="text-xl md:text-2xl text-zinc-200 font-medium">{tool}</span>
                           </div>
-                          <span className="text-3xl text-zinc-200 font-medium group-hover:text-white transition-colors flex-1">{ev.label}</span>
-                          {ev.url && ev.url !== "#" && <ExternalLink className="w-8 h-8 text-zinc-600 group-hover:text-indigo-400 shrink-0" />}
-                        </a>
-                      ))}
-                    </div>
-                  </section>
-                )}
+                        ))}
+                      </div>
+                    </section>
+                  )}
 
-                {/* 5. Compétences Mobilisées */}
-                {project.skills && project.skills.length > 0 && (
-                  <section>
-                    <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
-                      <CheckCircle className="w-8 h-8" /> Compétences du Référentiel
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      {SKILL_BLOCKS.map(block => {
-                        const activeSkills = block.skills.filter(s => project.skills!.includes(s.id));
-                        if (activeSkills.length === 0) return null;
-                        return (
-                          <div key={block.id} className="border border-zinc-800 rounded-3xl p-10 bg-zinc-900/20">
-                            <h4 className="text-lg font-bold text-zinc-500 uppercase mb-6">{block.title}</h4>
-                            <ul className="space-y-6">
-                              {activeSkills.map(skill => (
-                                <li key={skill.id} className="flex items-start gap-5 text-2xl text-zinc-300">
-                                  <span className="w-4 h-4 rounded-full bg-indigo-500 mt-3 shrink-0" />
-                                  {skill.label}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </section>
-                )}
+                  {/* 3. Difficultés */}
+                  {project.difficulties && (
+                    <section>
+                      <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
+                        <CheckCircle className="w-8 h-8" /> Difficultés rencontrées et solutions
+                      </h3>
+                      <div className="bg-zinc-900/40 border border-zinc-800 p-8 md:p-12 rounded-[2rem]">
+                        <p className="text-zinc-300 leading-relaxed text-xl md:text-3xl whitespace-pre-line">{project.difficulties}</p>
+                      </div>
+                    </section>
+                  )}
 
-              </div>
-            </motion.div>
+                  {/* 4. Section Technique Universelle (AVEC MARGE DYNAMIQUE SÉPARÉE) */}
+                  {(project.steps || project.analysis) && (
+                    <section>
+                      <h3 className="text-2xl font-bold text-indigo-400 uppercase tracking-wider mb-8 flex items-center gap-4">
+                        <List className="w-8 h-8" /> 
+                        {project.type === 'scolaire' ? "Analyse détaillée du projet" : "Documentation Technique"}
+                      </h3>
+                      <div className="bg-zinc-900/20 border border-zinc-800 p-8 md:p-12 rounded-[2rem] overflow-hidden">
+                        <div 
+                          className={`prose prose-invert max-w-none text-zinc-300 text-xl md:text-2xl leading-relaxed 
+                          [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
+                          
+                          ${project.type === 'scolaire' ? '[&_h2]:scroll-mt-[340px] [&_h3]:scroll-mt-[340px]' 
+                            : '[&_h2]:scroll-mt-[280px] [&_h3]:scroll-mt-[280px]'}
+                          
+                          [&_h2]:text-4xl [&_h2]:font-bold [&_h2]:text-white [&_h2]:mb-8 [&_h2]:mt-12
+                          [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-indigo-300 [&_h3]:mb-4 [&_h3]:mt-8
+                          [&_pre]:overflow-x-auto [&_pre]:max-w-full [&_pre]:bg-zinc-950 [&_pre]:p-6 [&_pre]:rounded-2xl [&_pre]:border [&_pre]:border-zinc-800 [&_pre]:my-8 [&_code]:text-indigo-300 [&_code]:break-all [&_code]:bg-transparent 
+                          [&_img]:rounded-2xl [&_img]:border [&_img]:border-zinc-800 [&_img]:my-12 [&_img]:mx-auto`}
+                          dangerouslySetInnerHTML={{ __html: project.steps || project.analysis || "" }} 
+                        />
+                      </div>
+                    </section>
+                  )}
+
+                </div>
+
+                {/* BOUTONS FLOTTANTS HAUT/BAS */}
+                <div className="sticky bottom-12 flex justify-end px-12 pb-12 pointer-events-none">
+                  <div className="flex flex-col gap-4 pointer-events-auto">
+                    <button 
+                      onClick={scrollToTop} 
+                      className="w-16 h-16 flex items-center justify-center bg-zinc-800/90 hover:bg-indigo-600 border border-zinc-700 rounded-full text-zinc-300 hover:text-white transition-all shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md group" 
+                      title="Remonter tout en haut"
+                    >
+                      <ArrowUp className="w-8 h-8 group-hover:-translate-y-1 transition-transform" />
+                    </button>
+                    <button 
+                      onClick={scrollToBottom} 
+                      className="w-16 h-16 flex items-center justify-center bg-zinc-800/90 hover:bg-indigo-600 border border-zinc-700 rounded-full text-zinc-300 hover:text-white transition-all shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md group" 
+                      title="Aller tout en bas"
+                    >
+                      <ArrowDown className="w-8 h-8 group-hover:translate-y-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+
+              </motion.main>
+            </div>
           </div>
         )}
       </AnimatePresence>
