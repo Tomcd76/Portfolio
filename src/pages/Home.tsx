@@ -1,8 +1,8 @@
 import { ArrowRight, Download, Briefcase, GraduationCap, Layers, FileText, Linkedin, Award, Eye } from "lucide-react";
 
 export default function Home() {
-  const scrollToSection = (id: string, label: string) => {
-    window.dispatchEvent(new CustomEvent('trigger-loading', { detail: { id, label } }));
+const scrollToSection = (id: string, label: string) => {
+    window.dispatchEvent(new CustomEvent('change-page', { detail: { id, label } }));
   };
 
   // Tableau mis à jour avec des descriptions uniques
@@ -20,31 +20,35 @@ export default function Home() {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center p-8 md:p-20 max-w-[1600px] mx-auto">
-      <header className="mb-16">
-        <div className="inline-block px-4 py-2 mb-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm md:text-base font-mono font-medium">
+    <section id="home" className="min-h-screen flex flex-col justify-center p-6 md:p-12 max-w-[1400px] mx-auto relative">
+      
+      {/* IMAGE D'ARRIÈRE PLAN POUR LA VIE */}
+      <div className="absolute inset-0 z-[-2] bg-[url('/bg-home.jpg')] bg-cover bg-center opacity-20 mask-image:linear-gradient(to_bottom,white,transparent)" />
+      <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-transparent via-zinc-950/80 to-zinc-950" />
+
+      <header className="mb-12 mt-12">
+        <div className="inline-block px-3 py-1.5 mb-4 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs md:text-sm font-mono font-medium">
           SESSION 2026
         </div>
-        <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight">
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
           Présentation <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Générale</span>
         </h1>
-        <div className="flex flex-col md:flex-row gap-8 items-start">
+        <div className="flex flex-col md:flex-row gap-6 items-start">
           <div className="flex-1">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Tom Marchand-Chatelet</h2>
-            <p className="text-2xl md:text-3xl text-zinc-400 leading-relaxed mb-10">
-              Administrateur Systèmes & Réseaux en devenir.<br/>
-              Étudiant en BTS SIO option SISR.
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Tom Marchand-Chatelet</h2>
+            <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed mb-8 max-w-3xl">
+            Étudiant en BTS SIO (Services Informatiques aux Organisations) option SISR, je me permets de vous présenter mon portfolio. Il rassemble l’ensemble de mes compétences techniques et réalisations (projets, stages, activités) sur mes deux années de formation.
             </p>
             
-            <div className="flex flex-wrap gap-6">
-              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-100 text-zinc-900 rounded-full text-lg font-medium hover:bg-white transition-colors">
+            <div className="flex flex-wrap gap-4">
+              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 rounded-full text-base font-medium hover:bg-white transition-colors shadow-lg">
                 <Download className="w-5 h-5" /> Consulter mon CV
               </a>
-              <a href="/Tableau-de-Synthèse.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 border border-zinc-700 text-zinc-300 rounded-full text-lg font-medium hover:bg-zinc-800 hover:text-white transition-colors">
+              <a href="/Tableau-de-Synthèse.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 border border-zinc-700 text-zinc-300 rounded-full text-base font-medium hover:bg-zinc-800 hover:text-white transition-colors shadow-lg">
                 <FileText className="w-5 h-5" /> Tableau de Synthèse
               </a>
-              <a href="https://www.linkedin.com/in/tom-marchand-chatelet-a779a035a/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 border border-zinc-700 text-zinc-300 rounded-full text-lg font-medium hover:bg-[#0077B5] hover:border-[#0077B5] hover:text-white transition-all group">
-                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" /> LinkedIn
+              <a href="https://www.linkedin.com/in/tom-marchand-chatelet-a779a035a/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-[#0077B5]/10 border border-[#0077B5]/20 text-[#0077B5] rounded-full text-base font-medium hover:bg-[#0077B5]/20 transition-colors shadow-lg" title="Mon profil LinkedIn">
+                <Linkedin className="w-5 h-5 fill-current" /> LinkedIn
               </a>
             </div>
           </div>
@@ -159,7 +163,7 @@ export default function Home() {
               <span className="text-indigo-400 font-mono text-lg">02</span>
               <ArrowRight className="w-6 h-6 text-zinc-600 group-hover:text-indigo-400 transition-colors" />
             </div>
-            <h4 className="font-medium text-zinc-200 mb-2 text-2xl leading-tight">Activités Professionnelles</h4>
+            <h4 className="font-medium text-zinc-200 mb-2 text-2xl leading-tight">Activités Pro.</h4>
           </button>
 
           <button onClick={() => scrollToSection('projets-scolaires', 'Projets Scolaires')} className="group text-left p-8 bg-zinc-900/20 border border-zinc-800 rounded-3xl hover:bg-zinc-900 hover:border-indigo-500/30 transition-all">

@@ -1524,240 +1524,450 @@ https://dns.google/dns-query</code></pre>
   },
 
   // --- ALTERNANCE (Gendarmerie) - SIMPLIFIÉ ---
-  {
-    id: "alt_acl",
-    title: "Droits ACL sur partages",
-    type: "alternance",
-    objectives: "Gérer de manière fine et sécurisée les accès aux dossiers partagés suite aux mutations du personnel.",
-    skills: ["habilitation", "regles", "traiter_res"]
-  },
-  {
-    id: "alt_solaris",
-    title: "Exploitation des tickets (Sol@ris)",
-    type: "alternance",
-    objectives: "Assurer le support technique de niveau 1 et 2 pour les unités de gendarmerie du groupement.",
-    skills: ["collecter", "traiter_res", "traiter_app", "accompagner"]
-  },
-  {
+{
     id: "alt_baie",
-    title: "Restructuration baie réseau",
+    title: "Optimisation et Refonte de la Baie Réseau",
     type: "alternance",
-    objectives: "Assainir et optimiser la baie de brassage de l'atelier technique pour améliorer les débits et la maintenance.",
-    skills: ["recenser", "planifier", "deployer"]
-  },
-  {
-    id: "alt_samba",
-    title: "Serveurs de fichiers Samba",
-    type: "alternance",
-    objectives: "Mettre en place et maintenir des partages de fichiers sécurisés pour les différentes brigades.",
-    skills: ["deployer", "patrimoine", "sauvegardes"]
-  },
+    context: "Gendarmerie Nationale (SOLC) - Atelier Technique",
+    objectives: "Passer d'un débit de 100 Mbps à 1 Gbps, restructurer le brassage pour une maintenance immédiate et intégrer un nouveau serveur Dell R660xs.",
+    description: "Refonte physique et logique de la baie de brassage de l'atelier technique de la SOLC. L'objectif de cette intervention était de résoudre les problèmes de lenteur réseau et de pallier l'absence de documentation sur l'infrastructure existante pour préparer l'arrivée d'un nouveau serveur Dell R660xs.",
+    tools: ["Switch Gigabit", "Dell R660xs", "Brassage CAT6", "Code couleur normalisé"],
+    difficulties: "L'absence de documentation rendait difficile la compréhension de l'infrastructure de l'atelier SOLC. Grâce aux renseignements des équipes, j'ai pu réaliser un plan de la baie de brassage existante.",
+    results: "Le débit est passé à 1 Gbps, réduisant drastiquement les temps de déploiement. L'identification d'une panne est désormais immédiate.",
+    analysis: "Ce projet m'a appris qu'une infrastructure performante commence par une couche physique (Couche 1) irréprochable et documentée.",
+    skills: ["recenser", "planifier", "deployer"],
+    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/projet-baie.pdf" }],
+    steps: `
+      <div class="documentation-complete">
+        <h2 id="section-1" class="text-3xl font-bold text-blue-400 mb-6 border-l-4 border-blue-500 pl-4">I. Présentation du Projet</h2>
+        <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-10">
+          <li><strong>Intitulé :</strong> Modernisation et réorganisation de la baie de brassage de l'atelier.</li>
+          <li><strong>Contexte :</strong> Projet réalisé au sein de l'atelier de la SOLC. L'infrastructure limitée à 100 Mbps créait un goulot d'étranglement. Travail réalisé en autonomie avec l'appui des équipes techniques.</li>
+        </ul>
 
-  // --- STAGE (Hisis Informatique) - SIMPLIFIÉ ---
-  {
-    id: "stage_audit",
-    title: "Audit Cyber (MaturiN, OPSIMS)",
-    type: "stage",
-    objectives: "Évaluer la maturité cybersécurité des infrastructures clients (EHPAD, Hôpitaux) et proposer des plans d'action.",
-    skills: ["analyser", "regles", "evaluer"]
-  },
-  {
+        <h2 id="section-2" class="text-3xl font-bold text-blue-400 mt-12 mb-6 border-l-4 border-blue-500 pl-4">II. Objectifs du Projet</h2>
+        <p class="text-zinc-300 mb-4">Le but principal était le rebrassage des câbles de la baie et la restructuration des équipements réseau, afin de préparer l'arrivée d'un nouveau serveur de virtualisation.</p>
+        <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-10">
+          <li><strong>Évolution des débits :</strong> Migration vers une infrastructure Gigabit.</li>
+          <li><strong>Traçabilité :</strong> Mise en place d'une norme visuelle (code couleur), création d'un schéma de la baie.</li>
+        </ul>
+
+        <h2 id="section-3" class="text-3xl font-bold text-blue-400 mt-12 mb-6 border-l-4 border-blue-500 pl-4">III. Description détaillée de la mise en œuvre</h2>
+        
+        <h3 class="text-2xl font-bold text-white mt-8 mb-4 border-l-4 border-white/30 pl-4">A. Architecture de la baie réseau avant</h3>
+        <p class="text-zinc-300 mb-4">Schématisation de la baie réseau existante.</p>
+        ${zoomWrapper('<img src="/Capt-Listprof/image1.png" alt="Architecture avant" class="max-w-3xl w-full h-auto mx-auto mb-8 rounded-xl border border-zinc-800 shadow-xl" />')}
+
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4 border-l-4 border-white/30 pl-4">B. Remplacement</h3>
+        <p class="text-zinc-300 mb-8">Remplacement du matériel et application du code couleur.</p>
+
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4 border-l-4 border-white/30 pl-4">C. Schéma du brassage</h3>
+        <p class="text-zinc-300 mb-4">Création d'un schéma représentatif de la baie après mise en place du brassage.</p>
+        ${zoomWrapper('<img src="/Capt-Listprof/image2.png" alt="Schéma de brassage final" class="max-w-3xl w-full h-auto mx-auto mb-10 rounded-xl border border-zinc-800 shadow-xl" />')}
+
+        <h2 id="section-4" class="text-3xl font-bold text-blue-400 mt-16 mb-8 border-l-4 border-blue-500 pl-4">IV. Difficultés rencontrées et Solutions</h2>
+        <div class="overflow-x-auto my-6">
+          <table class="w-full border-collapse border border-zinc-800 text-lg">
+            <thead>
+              <tr class="bg-zinc-900 text-white">
+                <th class="border border-zinc-800 p-4 text-left w-1/4">Incident</th>
+                <th class="border border-zinc-800 p-4 text-left w-1/3">Cause identifiée</th>
+                <th class="border border-zinc-800 p-4 text-left">Solution apportée</th>
+              </tr>
+            </thead>
+            <tbody class="text-zinc-300">
+              <tr>
+                <td class="border border-zinc-800 p-4 font-bold text-amber-400">Ports non identifiés</td>
+                <td class="border border-zinc-800 p-4">La baie ne respectait pas la documentation existante.</td>
+                <td class="border border-zinc-800 p-4">Suivi physique câble par câble pour recréer le plan.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="section-5" class="text-3xl font-bold text-blue-400 mt-16 mb-6 border-l-4 border-blue-500 pl-4">V. Résultats obtenus</h2>
+        <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-12 text-xl">
+          <li><strong>Performance :</strong> Débits Gigabit opérationnels.</li>
+          <li><strong>Maintenance facilitée :</strong> Identification immédiate des pannes grâce au code couleur.</li>
+          <li><strong>Évolutivité :</strong> Environnement prêt pour le nouveau serveur.</li>
+        </ul>
+
+        <h2 id="section-6" class="text-3xl font-bold text-blue-400 mt-16 mb-6 border-l-4 border-blue-500 pl-4">VI. Analyse personnelle</h2>
+        <p class="text-zinc-300 leading-relaxed text-2xl italic mb-8">
+          Cette intervention m'a fait comprendre qu'une infrastructure réseau performante repose avant tout sur une couche physique rigoureusement organisée.
+        </p>
+      </div>
+    `,
+},
+
+{
     id: "stage_wifi",
-    title: "Déploiement Wi-Fi Haute Densité",
+    title: "Modernisation et Segmentation de l'Infrastructure Wi-Fi",
     type: "stage",
-    objectives: "Remplacer une dizaine de bornes Wi-Fi obsolètes par des modèles de nouvelle génération afin d'améliorer la couverture et les débits.",
-    skills: ["recenser", "continuite", "traiter_res", "planifier", "tests", "deployer"]
-  },
-  {
-    id: "stage_rustdesk",
-    title: "Serveur RustDesk sur Proxmox",
-    type: "stage",
-    objectives: "Mettre en place une solution de prise en main à distance auto-hébergée (alternative à TeamViewer) pour le support technique.",
-    skills: ["deployer", "patrimoine", "habilitation"]
-  },
-  {
-    id: "stage_exchange",
-    title: "Migration Exchange vers PowerShell",
-    type: "stage",
-    objectives: "Automatiser et fiabiliser la procédure de création et de migration des boîtes aux lettres Exchange.",
-    skills: ["exploiter", "planifier", "accompagner"]
-  },
+    context: "Centre Hospitalier de Pont-de-Veyle (HISIS)",
+    objectives: "Restaurer une couverture Wi-Fi intégrale et performante tout en garantissant la segmentation étanche des flux réseaux.",
+    description: "Dans le cadre d'une intervention au Centre Hospitalier de Pont-de-Veyle, nous avons dû remplacer une quinzaine de bornes Wi-Fi obsolètes. Ces équipements, ne comptant plus que 8 bornes actives, généraient des zones blanches critiques.",
+    tools: ["Bornes Wi-Fi", "Cisco Catalyst 3750", "Switchs Aruba", "CLI Cisco", "VLAN 802.1Q"],
+    difficulties: "Difficulté à identifier le point de raccordement d'une borne Wi-Fi non fonctionnelle.Suivi du câble depuis le faux plafond jusqu'à la baie pour localiser et reconnecter le port manquant.",
+    results: "14 bornes sur 15 sont opérationnelles et intégrées au réseau de l'hôpital. Le test de roaming a été validé avec 0% de perte de paquets.",
+    analysis: "Cette intervention m'a permis de comprendre que l'administration réseau ne se limite pas à la ligne de commande (CLI).",
+    skills: ["recenser", "continuite", "deployer", "tests"],
+    evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Modernisation et Segmentation de l'Infrastructure Wi-Fi.pdf" }],
+    steps: `
+      <div class="documentation-complete">
+        <h2 id="section-1" class="text-3xl font-bold text-emerald-400 mb-6 border-l-4 border-emerald-500 pl-4">I. Présentation du Projet</h2>
+        <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-10">
+          <li><strong>Intitulé :</strong> Déploiement d'une infrastructure Wi-Fi multi-VLAN et sécurisation des accès soignants.</li>
+          <li><strong>Contexte :</strong> Projet réalisé en intervention pour l'entreprise HISIS au sein du Centre Hospitalier de Pont-de-Veyle (CHAVS). L'infrastructure souffrait d'une obsolescence matérielle majeure (licences expirées), réduisant le parc de 15 à seulement 8 bornes actives et générant des zones blanches critiques.</li>
+          <li><strong>Équipe :</strong> Travail réalisé en <strong>trinôme</strong> (trois techniciens), permettant une répartition optimale entre la configuration en baie (CLI) et le déploiement physique sur les étages.</li>
+        </ul>
 
-  // --- PROJETS SCOLAIRES ---
+        <h2 id="section-2" class="text-3xl font-bold text-emerald-400 mt-12 mb-6 border-l-4 border-emerald-500 pl-4">II. Objectifs du Projet</h2>
+        <p class="text-zinc-300 mb-4">L'objectif principal était de restaurer une couverture Wi-Fi intégrale et performante tout en garantissant la segmentation étanche des flux réseaux.</p>
+        <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-10">
+          <li><strong>Remplacement matériel :</strong> Installation physique de 15 nouvelles bornes Wi-Fi de nouvelle génération.</li>
+          <li><strong>Segmentation des flux :</strong> Isolation du réseau métier "Personnel" (VLAN 12) du réseau "Public" (VLAN 13).</li>
+          <li><strong>Itinérance (Roaming) :</strong> Garantir la stabilité du signal lors des déplacements des soignants pour assurer la continuité des soins via leurs tablettes.</li>
+        </ul>
+
+        <h2 id="section-3" class="text-3xl font-bold text-emerald-400 mt-12 mb-6 border-l-4 border-emerald-500 pl-4">III. Description détaillée de la mise en œuvre</h2>
+        
+        <h3 class="text-2xl font-bold text-white mt-8 mb-4 border-l-4 border-white/30 pl-4">A. Préparation logicielle et Staging</h3>
+        <p class="text-zinc-300 mb-4">Avant le déploiement physique, chaque borne a été configurée en atelier :</p>
+        <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-8">
+          <li>Mise à jour du firmware pour assurer la stabilité du système.</li>
+          <li>Configuration d'une IP de management fixe dans le VLAN natif (VLAN 1).</li>
+          <li>Déclaration dans le contrôleur centralisé pour la diffusion automatique des SSID.</li>
+        </ul>
+
+        <h3 class="text-2xl font-bold text-white mt-8 mb-4 border-l-4 border-white/30 pl-4">B. Configuration des commutateurs (Cisco Catalyst 3750 & Aruba)</h3>
+        <p class="text-zinc-300 mb-4">L'étape critique a consisté à identifier les ports existants et à les reconfigurer pour supporter le multi-SSID via le mode Trunk.</p>
+        <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-4">
+          <li><strong>Identification (Link Flapping) :</strong> Utilisation de la commande <code>show interface status</code> pour repérer l'interface passant en <em>notconnect</em> lors de la déconnexion de l'ancienne borne.</li>
+          <li><strong>Configuration du Trunking (802.1Q) :</strong></li>
+        </ul>
+        <pre><code>PDV-DC1-SW-3750# configure terminal
+PDV-DC1-SW-3750(config)# interface GigabitEthernet 2/0/13
+PDV-DC1-SW-3750(config-if)# description AP-WIFI-NOUVELLE-GEN
+PDV-DC1-SW-3750(config-if)# switchport trunk encapsulation dot1q
+PDV-DC1-SW-3750(config-if)# switchport mode trunk
+# Configuration des VLANs (VLAN 12 : Perso | VLAN 13 : Public)
+PDV-DC1-SW-3750(config-if)# switchport trunk native vlan 1
+PDV-DC1-SW-3750(config-if)# switchport trunk allowed vlan 1,12,13
+PDV-DC1-SW-3750(config-if)# spanning-tree portfast trunk
+PDV-DC1-SW-3750(config-if)# end
+PDV-DC1-SW-3750# write memory</code></pre>
+
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4 border-l-4 border-white/30 pl-4">C. Déploiement physique par services</h3>
+        <p class="text-zinc-300 mb-4">L'installation a été réalisée par étapes pour couvrir l'ensemble du site hospitalier :</p>
+        <ul class="list-disc pl-6 space-y-2 text-zinc-300 mb-10">
+          <li><strong>1er Étage :</strong> Remplacement de 4 bornes.</li>
+          <li><strong>SSIAD :</strong> Remplacement d'une borne et ajout d'une borne supplémentaire en baie informatique.</li>
+          <li><strong>2ème Étage :</strong> Installation de 4 bornes.</li>
+          <li><strong>3ème Étage :</strong> Installation de 3 bornes.</li>
+          <li><strong>RDC :</strong> Installation de 2 bornes (Salle de réunion et salle de restauration PASA).</li>
+        </ul>
+
+        <h2 id="section-4" class="text-3xl font-bold text-emerald-400 mt-16 mb-8 border-l-4 border-emerald-500 pl-4">IV. Difficultés rencontrées et Solutions</h2>
+        <div class="overflow-x-auto my-6">
+          <table class="w-full border-collapse border border-zinc-800 text-lg">
+            <thead>
+              <tr class="bg-zinc-900 text-white">
+                <th class="border border-zinc-800 p-4 text-left w-1/4">Incident</th>
+                <th class="border border-zinc-800 p-4 text-left w-1/3">Cause identifiée</th>
+                <th class="border border-zinc-800 p-4 text-left">Solution apportée</th>
+              </tr>
+            </thead>
+            <tbody class="text-zinc-300">
+              <tr>
+                <td class="border border-zinc-800 p-4 font-bold text-red-400">Borne du PASA non fonctionnelle</td>
+                <td class="border border-zinc-800 p-4">Impossible d'identifier le point de raccordement en baie car le câble se confondait avec le brassage existant.</td>
+                <td class="border border-zinc-800 p-4">Préconisation officielle dans le rapport d'intervention pour le tirage d'un nouveau câble réseau CAT6.</td>
+              </tr>
+              <tr>
+                <td class="border border-zinc-800 p-4 font-bold text-amber-400">Zones mal couvertes</td>
+                <td class="border border-zinc-800 p-4">Signal affaibli par l'épaisseur spécifique des murs hospitaliers.</td>
+                <td class="border border-zinc-800 p-4">Repositionnement stratégique des bornes après tests de signal pour homogénéiser la couverture.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+        <h2 id="section-5" class="text-3xl font-bold text-emerald-400 mt-16 mb-6 border-l-4 border-emerald-500 pl-4">V. Résultats obtenus</h2>
+        <ul class="list-disc pl-6 space-y-3 text-zinc-300 mb-12 text-xl">
+          <li><strong>Couverture optimisée :</strong> 14 bornes sur 15 sont opérationnelles et intégrées au réseau de l'hôpital.</li>
+          <li><strong>Tests de recette :</strong> Validation réussie du roaming entre les étages via un test de ping continu (0% de perte de paquets).</li>
+          <li><strong>Satisfaction usagers :</strong> Le personnel soignant a confirmé une amélioration majeure de la fluidité de leurs outils métiers.</li>
+        </ul>
+
+        <h2 id="section-6" class="text-3xl font-bold text-emerald-400 mt-16 mb-6 border-l-4 border-emerald-500 pl-4">VI. Analyse personnelle et Prise de recul</h2>
+        <p class="text-zinc-300 leading-relaxed text-2xl italic mb-8">
+          Cette intervention m'a permis de comprendre que l'administration réseau ne se limite pas à la ligne de commande (CLI). L'incident de la salle PASA démontre que la qualité du brassage et l'étiquetage physique sont des facteurs déterminants pour la maintenance et l'évolution d'une infrastructure.
+        </p>
+      </div>
+    `
+},
+
+// --- PROJETS SCOLAIRES (Version Complète & Fidèle au HTML) ---
 {
     id: "scolaire_profils",
     title: "Centralisation et Automatisation des Profils Itinérants",
     type: "scolaire",
     context: "Projet de deuxième année",
-    objectives: "Haute disponibilité et mobilité des utilisateurs",
-    description: "Dans le cadre d'un projet de deuxième année portant sur la haute disponibilité et la mobilité des utilisateurs, j'ai déployé une infrastructure de profils itinérants sécurisée. L'objectif est de dissocier les données et paramètres des utilisateurs de leurs postes physiques pour les centraliser sur le serveur SRV-AD-01. Cette solution permet à un collaborateur de retrouver son environnement de travail complet (Bureau, Documents, AppData) sur n'importe quel ordinateur du domaine labo-it.local, garantissant ainsi la continuité de service en cas de panne matérielle d'un client.",
+    objectives: "• Dissocier les données des postes clients pour permettre la mobilité.\n• Centraliser la gestion sur le serveur SRV-AD-01.\n• Automatiser le déploiement des nouveaux postes via une structure d'Unités d'Organisation (OU).",
+    description: "Déploiement d'une infrastructure de profils itinérants sécurisée sur Windows Server 2019. L'objectif est de centraliser les données utilisateurs (Bureau, Documents, AppData) sur le serveur SRV-AD-01 pour permettre une mobilité totale sur le domaine labo-it.local.",
     tools: ["Windows Server", "Active Directory", "Profils Itinérants", "GPO", "PowerShell"],
     evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Configuration des profils itinérants sous Windows Server 2019.pdf" }],
     steps: `
       <div class="documentation-complete">
-        <h2 id="section-1">I. Présentation du Projet</h2>
-        <ul>
-          <li><strong>Intitulé :</strong> Déploiement d'une infrastructure de profils itinérants sécurisée.</li>
-          <li><strong>Contexte :</strong> Projet d'administration système réalisé sur l'infrastructure Windows Server labo-it.local.</li>
-          <li><strong>Équipe :</strong> Réalisé en autonomie.</li>
-        </ul>
+        <h2 id="section-1" class="text-3xl font-bold text-indigo-400 mb-6 border-l-4 border-indigo-500 pl-4">I. Architecture technique du projet</h2>
+        ${zoomWrapper('<img src="/Capt-pro/image1.png" alt="Architecture technique" class="w-full h-auto mb-16" />')}
 
-        <h2 id="section-2">II. Objectifs du Projet</h2>
-        <ul>
-          <li>Dissocier les données des postes clients pour permettre la mobilité.</li>
-          <li>Centraliser la gestion sur le serveur <strong>SRV-AD-01</strong>.</li>
-          <li>Automatiser le déploiement des nouveaux postes via une structure d'Unités d'Organisation (OU).</li>
-        </ul>
-
-        <h2 id="section-3">III. Description détaillée des étapes de mise en place</h2>
-        <p>Le cœur de ce projet a consisté à lier le stockage de fichiers à l'annuaire <strong>AD DS</strong> du serveur <strong>SRV-AD-01</strong>. L'objectif était de transformer un partage réseau en profils itinérants, tout en automatisant la gestion des droits via des GPO.</p>
-
-        <h3 id="section-3-1">Architecture technique du projet</h3>
-        ${zoomWrapper('<img src="/Capt-pro/image1.png" alt="Architecture" class="w-full h-auto" />')}
-        <h3 id="section-3-2">Étape 1 : Création et Partage du répertoire racine</h3>
-        <ol>
-          <li><strong>Création du dossier :</strong> Sur le disque C: du serveur, création du dossier Profils.</li>
-          <li><strong>Partage caché :</strong> Dossier configuré en "Profils$" pour le rendre invisible sur le réseau.</li>
-          <li><strong>Autorisations :</strong> Contrôle total accordé au groupe "Tout le monde" (la sécurité réelle étant gérée par le NTFS).</li>
+        <h2 id="section-2" class="text-3xl font-bold text-white mb-8">II. Description détaillée des étapes de mise en place</h2>
+        
+        <h3 id="section-2-1">Étape 1 : Création et Partage du répertoire racine</h3>
+        <ol class="list-decimal pl-6 space-y-3 mb-6 text-zinc-300">
+            <li><strong>Création du dossier :</strong> Sur le disque C: du serveur, créer le dossier <code>Profils</code>.</li>
+            <li><strong>Partage caché :</strong> [Clic droit] -> [Propriétés] -> [Partage] -> [Partage avancé].</li>
+            <li><strong>Nom du partage :</strong> Saisir <code>Profils$</code> (le symbole $ rend le partage invisible sur le réseau).</li>
+            <li><strong>Autorisations de partage :</strong> Cliquer sur [Autorisations] et accorder le "Contrôle total" au groupe "Tout le monde".</li>
         </ol>
-        <p><img src="/Capt-pro/image4.png" alt="Partage du répertoire" /></p>
+        <p><img src="/Capt-pro/image4.png" alt="Partage du répertoire" class="rounded-xl border border-zinc-800 mb-4" /></p>
+        <p class="text-indigo-400 italic mb-10 text-xl">* Note : La sécurité réelle sera gérée par les droits NTFS dans l'onglet Sécurité.</p>
 
-        <h3 id="section-3-3">Étape 2 : Configuration de la Sécurité NTFS (Avancée)</h3>
-        <p>Désactivation de l'héritage et configuration des droits pour le groupe "Utilisateurs du domaine" :</p>
-        <ul>
-          <li><strong>Portée :</strong> Ce dossier seulement.</li>
-          <li><strong>Droits :</strong> Lecture et surtout <strong>"Création de dossiers / ajout de données"</strong> pour empêcher les utilisateurs de lire les dossiers des autres à la racine.</li>
+        <h3 id="section-2-2">Étape 2 : Configuration de la Sécurité NTFS (Avancée)</h3>
+        <ol class="list-decimal pl-6 space-y-3 mb-6 text-zinc-300">
+            <li><strong>Accès :</strong> [Propriétés du dossier] -> [Sécurité] -> [Avancé].</li>
+            <li><strong>Héritage :</strong> Cliquer sur [Désactiver l'héritage] -> "Convertir les autorisations héritées en autorisations explicites".</li>
+            <li><strong>Droits spécifiques :</strong> Ajouter le groupe "Utilisateurs du domaine".
+                <ul class="list-disc pl-6 mt-2 space-y-1">
+                    <li><strong>Portée :</strong> Modifier "S'applique à" pour sélectionner <strong>"Ce dossier seulement"</strong>.</li>
+                    <li><strong>Droits :</strong> Cocher "Parcourir le dossier", "Lecture" et surtout <strong>"Création de dossiers / ajout de données"</strong>.</li>
+                </ul>
+            </li>
+        </ol>
+        <div class="bg-indigo-500/10 border-l-4 border-indigo-500 p-4 mb-6">
+            <p class="text-indigo-300 text-xl font-medium">* Astuce : Cette restriction empêche les utilisateurs de lire les dossiers des autres collègues à la racine.</p>
+        </div>
+        <p><img src="/Capt-pro/image5.png" alt="Sécurité NTFS Avancée" class="rounded-xl border border-zinc-800 mb-10" /></p>
+
+        <h3 id="section-2-3">Étape 3 : Configuration des comptes dans l'Active Directory</h3>
+        <ol class="list-decimal pl-6 space-y-3 mb-6 text-zinc-300">
+            <li><strong>Console :</strong> Ouvrir [Utilisateurs et ordinateurs Active Directory].</li>
+            <li><strong>Utilisateur :</strong> [Propriétés de l'utilisateur] -> onglet [Profil].</li>
+            <li><strong>Chemin du profil :</strong> Saisir <code>\\\\SRV-AD-01\\Profils$\\%username%</code>.</li>
+        </ol>
+        <p><img src="/Capt-pro/image6.png" alt="Configuration AD" class="rounded-xl border border-zinc-800 mb-10" /></p>
+
+        <h3 id="section-2-4">Étape 4 : Déploiement de la GPO d'accès Administrateur</h3>
+        <p class="text-zinc-300 mb-4">Par défaut, l'administrateur n'a pas accès aux profils créés. Il faut donc déployer une GPO spécifique.</p>
+        <ol class="list-decimal pl-6 space-y-3 mb-6 text-zinc-300">
+            <li><strong>Console :</strong> [Gestion des stratégies de groupe].</li>
+            <li><strong>Création :</strong> Créer une GPO nommée <code>Profils_itinerants</code>.</li>
+        </ol>
+        <p><img src="/Capt-pro/image7.png" alt="Création GPO" class="rounded-xl border border-zinc-800 mb-6" /></p>
+        <ol start="3" class="list-decimal pl-6 space-y-3 mb-6 text-zinc-300">
+            <li><strong>Paramétrage :</strong> [Configuration ordinateur] -> [Stratégies] -> [Modèles d'administration] -> [Système] -> [Profils utilisateur].</li>
+            <li><strong>Activation :</strong> Activer "Ajouter le groupe de sécurité Administrateurs aux profils utilisateur itinérants" ainsi que l'option "Ne pas vérifier la propriété de l'utilisateur sur les dossiers de profils itinérants".</li>
+        </ol>
+        <p><img src="/Capt-pro/image8.png" alt="Paramètres GPO" class="rounded-xl border border-zinc-800 mb-6" /></p>
+        <p class="text-zinc-300 mb-8">5. <strong>Liaison :</strong> Lier la GPO à l'OU <code>Postes_Clients</code>.</p>
+
+        <h3 id="section-2-5">Étape 5 : Automatisation de la jointure au domaine (redircmp)</h3>
+        <p class="text-zinc-300 mb-4">Pour que les nouveaux PC reçoivent automatiquement la GPO sans intervention manuelle :</p>
+        <ol class="list-decimal pl-6 space-y-3 mb-6 text-zinc-300">
+            <li>Ouvrir une invite de commande (CMD) en Administrateur sur le serveur.</li>
+            <li>Exécuter : <code>redircmp "OU=Postes_Clients,DC=labo-it,DC=local"</code>.</li>
+        </ol>
+        <p><img src="/Capt-pro/image2.png" alt="Commande redircmp" class="rounded-xl border border-zinc-800 mb-4" /></p>
+        <p class="text-indigo-400 italic mb-10 text-xl">* Note : Désormais, tout nouveau poste intégré au domaine sera rangé directement dans l'OU cible.</p>
+
+        <h2 id="section-3" class="text-3xl font-bold text-white mt-16 mb-6">III. Procédures de test et de diagnostic</h2>
+        <p class="text-zinc-300 mb-6">Lors du déploiement, les commandes suivantes ont été essentielles pour valider les étapes :</p>
+        <ul class="list-disc pl-6 space-y-4 mb-8 text-zinc-300">
+            <li><strong>Sur le Client :</strong>
+                <ul class="list-circle pl-6 mt-2 space-y-2">
+                    <li><code>ipconfig /flushdns</code> : Pour s'assurer que le client interroge bien le serveur DNS (192.168.1.100).</li>
+                    <li><code>gpupdate /force</code> : Pour forcer l'application immédiate de la GPO de sécurité.</li>
+                    <li><code>nslookup labo-it.local</code> : Pour vérifier que le client "voit" bien le domaine.</li>
+                </ul>
+            </li>
+            <li><strong>Sur le Serveur :</strong>
+                <ul class="list-circle pl-6 mt-2">
+                    <li>Vérification de la création du dossier <code>nom.utilisateur.V6</code> dans <code>C:\\Profils</code>.</li>
+                </ul>
+            </li>
         </ul>
-        <p><img src="/Capt-pro/image5.png" alt="Sécurité NTFS Avancée" /></p>
+        <p><img src="/Capt-pro/image3.png" alt="Vérification serveur" class="rounded-xl border border-zinc-800 mb-10" /></p>
 
-        <h3 id="section-3-4">Étape 3 : Configuration des comptes dans l'Active Directory</h3>
-        <p>Dans les propriétés de l'utilisateur, onglet Profil, le chemin suivant a été renseigné : <code>\\\\SRV-AD-01\\Profils$\\%username%</code>.</p>
-        <p><img src="/Capt-pro/image6.png" alt="Configuration AD" /></p>
-
-        <h3 id="section-3-5">Étape 4 : Déploiement de la GPO d'accès Administrateur</h3>
-        <p>Création d'une GPO <strong>Profils_itinerants</strong> pour forcer l'ajout du groupe Administrateurs aux profils créés, permettant la maintenance ultérieure.</p>
-        <p><img src="/Capt-pro/image7.png" alt="Création GPO" /></p>
-        <p><img src="/Capt-pro/image8.png" alt="Paramètres GPO" /></p>
-
-        <h3 id="section-3-6">Étape 5 : Automatisation de la jointure au domaine (redircmp)</h3>
-        <p>Exécution de la commande <code>redircmp "OU=Postes_Clients,DC=labo-it,DC=local"</code> pour que tout nouveau poste intégré au domaine soit rangé directement dans l'OU cible gérée par nos GPO.</p>
-        <p><img src="/Capt-pro/image2.png" alt="Commande redircmp" /></p>
-
-        <h2 id="section-4">IV. Procédures de test et de diagnostic</h2>
-        <p>Vérification du bon fonctionnement via :</p>
-        <ul>
-          <li><code>ipconfig /flushdns</code> et <code>nslookup</code> pour la résolution de noms.</li>
-          <li><code>gpupdate /force</code> pour l'application des stratégies.</li>
-          <li>Vérification visuelle de la création du dossier <code>nom.utilisateur.V6</code> sur le serveur.</li>
-        </ul>
-        <p><img src="/Capt-pro/image3.png" alt="Vérification serveur" /></p>
-
-        <h2 id="section-5">V. Difficultés rencontrées et Solutions</h2>
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse border border-zinc-800">
+        <h2 id="section-4" class="text-3xl font-bold text-white mt-16 mb-6">IV. Difficultés rencontrées et Solutions</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full border-collapse border border-zinc-800 text-zinc-300">
             <thead>
-              <tr class="bg-zinc-900">
-                <th class="border border-zinc-800 p-2">Problème rencontré</th>
-                <th class="border border-zinc-800 p-2">Action corrective</th>
+              <tr class="bg-zinc-900 text-xl text-white">
+                <th class="border border-zinc-800 p-4 text-left">Problème rencontré</th>
+                <th class="border border-zinc-800 p-4 text-left">Action corrective</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="text-xl">
               <tr>
-                <td class="border border-zinc-800 p-2 font-bold text-white">Profil Temporaire au login</td>
-                <td class="border border-zinc-800 p-2 text-zinc-400">Nettoyage de la clé de registre ProfileList (regedit) sur le client pour supprimer les traces de la session corrompue.</td>
+                <td class="border border-zinc-800 p-4 font-bold">Profil Temporaire au login</td>
+                <td class="border border-zinc-800 p-4">Nettoyage de la clé de registre ProfileList (regedit) sur le client pour supprimer les traces de la session corrompue.</td>
               </tr>
               <tr>
-                <td class="border border-zinc-800 p-2 font-bold text-white">GPO non appliquée</td>
-                <td class="border border-zinc-800 p-2 text-zinc-400">Déplacement manuel de l'ordinateur vers l'OU Postes_Clients (le conteneur Computers ne gère pas les GPO).</td>
+                <td class="border border-zinc-800 p-4 font-bold">GPO non appliquée</td>
+                <td class="border border-zinc-800 p-4">Déplacement manuel de l'ordinateur du conteneur Computers vers l'OU Postes_Clients (le conteneur ne gère pas les GPO).</td>
               </tr>
               <tr>
-                <td class="border border-zinc-800 p-2 font-bold text-white">Accès refusé sur le serveur</td>
-                <td class="border border-zinc-800 p-2 text-zinc-400">Correction de la syntaxe réseau DNS et validation des droits NTFS "Ce dossier seulement".</td>
+                <td class="border border-zinc-800 p-4 font-bold">Accès refusé sur le serveur</td>
+                <td class="border border-zinc-800 p-4">Erreur de syntaxe réseau. Correction du chemin DNS et validation des droits NTFS "Ce dossier seulement".</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h2 id="section-6">VI. Mise en évidence des compétences (Référentiel BTS SIO)</h2>
-        <p><strong>Gérer le patrimoine informatique :</strong> Vérifier les conditions de la continuité d'un service (reprise d'activité immédiate sur un autre poste).</p>
-        <p><strong>Gérer le patrimoine informatique :</strong> Gérer des sauvegardes (centralisation des données sur le serveur).</p>
-        <p><strong>Répondre aux incidents :</strong> Traiter des demandes réseau et système (diagnostic DNS et manipulation de registre).</p>
+        <h2 id="section-5" class="text-3xl font-bold text-white mt-16 mb-6">V. Mise en évidence des compétences (Référentiel BTS SIO)</h2>
+        <div class="space-y-6 text-zinc-300 text-xl">
+            <p><strong>Gérer le patrimoine informatique : Vérifier les conditions de la continuité d'un service informatique.</strong><br/>
+            Mise en place d'une infrastructure permettant la reprise d'activité immédiate sur un autre poste en cas de panne matérielle.</p>
+            
+            <p><strong>Gérer le patrimoine informatique : Gérer des sauvegardes.</strong><br/>
+            Centralisation des données locales vers le serveur pour permettre leur sauvegarde par le système central.</p>
+            
+            <p><strong>Répondre aux incidents : Traiter des demandes concernant les services réseau et système.</strong><br/>
+            Diagnostic de résolution de noms (DNS) et manipulation de la base de registre pour restaurer l'accès utilisateur.</p>
+        </div>
 
-        <h2 id="section-7">VII. Analyse personnelle et Prise de recul</h2>
-        <p>Ce projet m'a appris que la rigueur de saisie (syntaxe des variables) et la configuration DNS sont les piliers d'Active Directory. L'utilisation de <code>redircmp</code> démontre que l'automatisation est indispensable pour gérer un parc de manière professionnelle.</p>
+        <h2 id="section-6" class="text-3xl font-bold text-white mt-16 mb-6">VI. Analyse personnelle et Prise de recul</h2>
+        <p class="text-zinc-300 leading-relaxed text-2xl italic">
+            Ce projet m'a appris que la rigueur de saisie (syntaxe des variables comme %username%) et la bonne configuration du DNS sont les piliers d'une infrastructure Active Directory. L'utilisation de commandes comme <code>redircmp</code> démontre que l'automatisation est indispensable pour gérer un parc informatique de manière professionnelle et évolutive.
+        </p>
       </div>
     `
-  },
+},
+// --- PROJET ADA (Version Intégrale & Fidèle à l'index) ---
 {
     id: "scolaire_ada",
     title: "Interconnexion et Routage de l'Infrastructure ADA",
     type: "scolaire",
     context: "Projet de deuxième année",
-    objectives: "Interconnexion complète du réseau national",
+    // Ton texte validé pour le haut de la page (Section I et II fusionnées)
     description: "Dans le cadre du projet portant sur l'infrastructure du groupe ADA, leader de la location de véhicules, j'ai réalisé l'interconnexion complète de leur réseau national. Ce travail a permis d'établir une communication bidirectionnelle sécurisée entre le siège social (serveurs centraux) et les agences distantes via une architecture de routage complexe sous Linux Debian.",
+    objectives: "• Établir des routes statiques entre 4 segments réseaux distincts.\n• Assurer la sortie Internet via un mécanisme de NAT/Masquerade.\n• Permettre aux agences d'accéder aux serveurs centraux (172.16.0.0).",
+    
     tools: ["Linux Debian", "Routage statique", "NAT/Masquerade", "Proxmox", "VLANs"],
     evidence: [{ label: "Documentation technique (PDF)", type: "document", url: "/Interconnexion et routage de l'infrastructure ADA.pdf" }],
+    
     steps: `
       <div class="documentation-complete">
-        <h2 id="section-1">I. Présentation du Projet</h2>
-        <ul>
-          <li><strong>Intitulé :</strong> Mise en œuvre du routage statique et sécurisation des flux inter-agences.</li>
-          <li><strong>Contexte :</strong> Projet réalisé pour le groupe <strong>ADA</strong> afin d'interconnecter les parcs informatiques nationaux.</li>
+        <h2 id="section-1" class="text-3xl font-bold text-indigo-400 mb-6 border-l-4 border-indigo-500 pl-4">I. Architecture Réseau du Projet</h2>
+        <p class="mb-8 text-zinc-300">Schéma global de l'infrastructure ADA incluant la DMZ, la zone serveurs et l'interconnexion vers les agences distantes.</p>
+        ${zoomWrapper('<img src="/Capt-pro/image12.png" alt="Architecture réseau ADA" class="max-w-3xl w-full h-auto mx-auto mb-16 rounded-xl border border-zinc-800 shadow-xl" />')}
+        <h2 id="section-2" class="text-3xl font-bold text-white mb-6">II. Description détaillée du travail réalisé</h2>
+
+        <h3 id="section-2-1" class="text-2xl font-semibold text-indigo-300 mb-4">1. Activation du routage (IP Forwarding)</h3>
+        <p class="text-zinc-300 mb-4">Avant de déclarer les routes, il est impératif d'activer l'<strong>IP Forwarding</strong> au niveau du noyau Linux pour que les machines transmettent les paquets.</p>
+        
+        <ul class="list-disc pl-6 space-y-4 mb-8 text-zinc-300">
+            <li><strong>Activation immédiate (à chaud) :</strong> Modification du paramètre directement dans le noyau :
+                <br/><code class="text-indigo-300">sudo sysctl -w net.ipv4.ip_forward=1</code>
+            </li>
+            <li><strong>Activation persistante (au démarrage) :</strong> Ajout de la commande dans le fichier interfaces :
+                <br/><code class="text-indigo-300">post-up echo 1 > /proc/sys/net/ipv4/ip_forward</code>
+            </li>
         </ul>
 
-        <h2 id="section-2">II. Objectifs du Projet</h2>
-        <ul>
-          <li>Établir des routes statiques entre 4 segments réseaux distincts.</li>
-          <li>Assurer la sortie Internet via un mécanisme de <strong>NAT/Masquerade</strong>.</li>
-          <li>Permettre aux agences d'accéder aux serveurs centraux (172.16.0.0).</li>
+        <h3 id="section-2-2" class="text-2xl font-semibold text-indigo-300 mb-4">2. Configuration des Routeurs (Post-Up)</h3>
+        <p class="text-zinc-300 mb-6">Pour chaque routeur, l'ajout de routes statiques a été automatisé via la directive <code>post-up</code>.</p>
+        
+        <ul class="list-none space-y-12">
+            <li class="border-b border-zinc-800 pb-8">
+                <strong class="text-white text-xl">RTR1 (Passerelle Internet) :</strong> Pivot entre le Web et la DMZ.
+                <p class="text-zinc-400 mt-2 mb-4">Configuration du NAT sur l'interface ens18 et route vers les agences via RTR2.</p>
+                <img src="/Capt-pro/image13.png" alt="Configuration RTR1" class="rounded-xl border border-zinc-800" />
+            </li>
+            
+            <li class="border-b border-zinc-800 pb-8">
+                <strong class="text-white text-xl">RTR2 (Routeur Intermédiaire) :</strong> Lien DMZ (172.17.1.0) et Serveurs (172.16.0.0).
+                <p class="text-zinc-400 mt-2 mb-4">Route vers le cœur VPN (172.24.0.0) via le routeur RTR3.</p>
+                <img src="/Capt-pro/image14.png" alt="Configuration RTR2" class="rounded-xl border border-zinc-800" />
+            </li>
+            
+            <li class="border-b border-zinc-800 pb-8">
+                <strong class="text-white text-xl">RTR3 (Cœur de Réseau VPN) :</strong> Interconnexion des agences.
+                <p class="text-zinc-400 mt-2 mb-4">Configuration des routes vers Agence 1 (172.24.0.1) et Agence 2 (172.24.0.2).</p>
+                <img src="/Capt-pro/image15.png" alt="Configuration RTR3" class="rounded-xl border border-zinc-800" />
+            </li>
+            
+            <li>
+                <strong class="text-white text-xl">RTR-AG01 (Routeur Agence) :</strong> Passerelle locale.
+                <p class="text-zinc-400 mt-2 mb-4">Lien vers le cœur de réseau via l'interface enp0s3 pour les clients de l'agence.</p>
+                <img src="/Capt-pro/image16.png" alt="Configuration RTR-AG01" class="rounded-xl border border-zinc-800" />
+            </li>
         </ul>
 
-        <h2 id="section-3">III. Description détaillée du travail réalisé</h2>
-        <h3 id="section-3-1">1. Architecture Réseau</h3>
-        ${zoomWrapper('<img src="/Capt-pro/image12.png" alt="Architecture réseau ADA" class="w-full h-auto" />')}
-        <h3 id="section-3-2">2. Activation du routage (IP Forwarding)</h3>
-        <p>Activation persistante via la directive <code>post-up echo 1 > /proc/sys/net/ipv4/ip_forward</code> dans le fichier interfaces.</p>
-
-        <h3 id="section-3-3">3. Configuration des Routeurs (Post-Up)</h3>
-        <ul>
-          <li><strong>RTR1 (Passerelle Internet) :</strong> 
-          <br/><img src="/Capt-pro/image13.png" alt="Configuration RTR1" class="mt-2" /></li>
-          
-          <li><strong>RTR2 (Routeur Intermédiaire) :</strong>
-          <br/><img src="/Capt-pro/image14.png" alt="Configuration RTR2" class="mt-2" /></li>
-          
-          <li><strong>RTR3 (Cœur de Réseau VPN) :</strong>
-          <br/><img src="/Capt-pro/image15.png" alt="Configuration RTR3" class="mt-2" /></li>
-          
-          <li><strong>RTR-AG01 (Routeur Agence) :</strong>
-          <br/><img src="/Capt-pro/image16.png" alt="Configuration RTR-AG01" class="mt-2" /></li>
-        </ul>
-
-        <h2 id="section-5">V. Difficultés rencontrées et Solutions</h2>
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse border border-zinc-800">
+        <h2 id="section-3" class="text-3xl font-bold text-white mt-16 mb-6">III. Difficultés rencontrées et Solutions</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full border-collapse border border-zinc-800 text-zinc-300">
             <thead>
-              <tr class="bg-zinc-900">
-                <th class="border border-zinc-800 p-2">Difficulté</th>
-                <th class="border border-zinc-800 p-2">Solution apportée</th>
+              <tr class="bg-zinc-900 text-white">
+                <th class="border border-zinc-800 p-4 text-left">Difficulté</th>
+                <th class="border border-zinc-800 p-4 text-left">Solution apportée</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="text-xl">
               <tr>
-                <td class="border border-zinc-800 p-2 font-bold text-white">Perte des routes au redémarrage</td>
-                <td class="border border-zinc-800 p-2 text-zinc-400">Utilisation de la directive <strong>post-up</strong> dans le fichier interfaces.</td>
+                <td class="border border-zinc-800 p-4 font-bold">Perte des routes au redémarrage</td>
+                <td class="border border-zinc-800 p-4">Utilisation de la directive <strong>post-up</strong> dans le fichier interfaces pour rendre les routes persistantes.</td>
               </tr>
               <tr>
-                <td class="border border-zinc-800 p-2 font-bold text-white">Absence de retour de ping</td>
-                <td class="border border-zinc-800 p-2 text-zinc-400">Vérification et activation de l'IP Forwarding via le noyau.</td>
+                <td class="border border-zinc-800 p-4 font-bold">Routes redondantes sur RTR3</td>
+                <td class="border border-zinc-800 p-4">Analyse de la table de routage et suppression des routes vers des réseaux directement connectés (comme le 172.16.0.0).</td>
+              </tr>
+              <tr>
+                <td class="border border-zinc-800 p-4 font-bold">Absence de retour de ping</td>
+                <td class="border border-zinc-800 p-4">Vérification et activation de l'IP Forwarding via <code>/proc/sys/net/ipv4/ip_forward</code>.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <h2 id="section-7">VII. Résultats et Tests de validation</h2>
-        <p>Les tests ont confirmé le succès de l'interconnexion via Ping et Traceroute à travers les 3 sauts du réseau.</p>
+        <h2 id="section-4" class="text-3xl font-bold text-white mt-16 mb-6">IV. Mise en évidence des compétences (Référentiel BTS SIO)</h2>
+        <div class="space-y-6 text-zinc-300 text-xl">
+            <p><strong>Gérer le patrimoine informatique : Recenser et identifier les ressources numériques.</strong><br/>
+            Identification et planification de l'adressage IP de chaque segment du réseau ADA (DMZ, zone Serveurs et zone Agences) en respectant les VLANs définis.</p>
+            
+            <p><strong>Gérer le patrimoine informatique : Vérifier les conditions de la continuité d'un service.</strong><br/>
+            Mise en place d'un routage statique persistant garantissant que la communication entre les agences et la base de données centrale reste opérationnelle après redémarrage.</p>
+            
+            <p><strong>Mettre à disposition des utilisateurs un service informatique : Déployer un service.</strong><br/>
+            Configuration complète des services de routage sur Debian et mise en place du NAT (Masquerade) sur RTR1 pour l'accès Internet sécurisé.</p>
+        </div>
+
+        <h2 id="section-5" class="text-3xl font-bold text-white mt-16 mb-6">V. Résultats et Tests de validation</h2>
+        <div class="bg-zinc-900/40 p-6 rounded-xl border border-zinc-800 text-zinc-300">
+            <p class="mb-4 font-bold">Test de connectivité (Ping) :</p>
+            <ul class="list-disc pl-6 space-y-2 mb-6">
+                <li>Agence 1 vers Serveur Web (172.16.0.3) : <strong>Succès</strong>.</li>
+                <li>RTR3 vers Google DNS (8.8.8.8) via RTR1 : <strong>Succès</strong>.</li>
+            </ul>
+            
+            <p class="mb-4 font-bold">Tracé de route (TraceRT) vers LAN Agence 1 :</p>
+            <ol class="list-decimal pl-6 space-y-1">
+                <li>172.17.1.253 (RTR2)</li>
+                <li>172.16.0.253 (RTR3)</li>
+                <li>172.24.0.1 (RTR-AG01)</li>
+            </ol>
+            <p class="mt-4 italic">Navigation réussie à travers 3 sauts réseau.</p>
+        </div>
+
+        <h2 id="section-6" class="text-3xl font-bold text-white mt-16 mb-6">VI. Analyse personnelle et Prise de recul</h2>
+        <p class="text-zinc-300 leading-relaxed text-2xl italic">
+            Ce projet m'a permis de comprendre que le routage ne se limite pas à "donner un chemin", mais nécessite une vision globale de l'infrastructure pour éviter les boucles de routage dans un environnement de production complexe comme celui d'ADA.
+        </p>
       </div>
     `
-  }
+}
 ];

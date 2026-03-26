@@ -5,14 +5,9 @@ import { Menu, User, FolderKanban, GraduationCap, Radio, Briefcase } from "lucid
 export function NavigationBubble() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (id: string, label: string) => {
+const scrollToSection = (id: string, label: string) => {
     setIsOpen(false);
-
-    // Scroll immédiat et fluide
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    window.dispatchEvent(new CustomEvent('change-page', { detail: { id, label } }));
   };
 
   useEffect(() => {
@@ -25,11 +20,11 @@ export function NavigationBubble() {
 
   const SECTIONS = [
     { id: "home", label: "Présentation Générale", icon: User },
-    { id: "activites-formation", label: "Activités Formation", icon: FolderKanban },
-    { id: "activites-pro", label: "Cadre Professionnel", icon: Briefcase },
-    { id: "projets-scolaires", label: "Projets Scolaires", icon: FolderKanban },
-    { id: "skills", label: "Synthèse Compétences", icon: GraduationCap },
-    { id: "veille", label: "Dév. Pro & Veille", icon: Radio },
+    { id: "activites-formation", label: "Activités en Formation", icon: FolderKanban },
+    { id: "activites-pro", label: "Activités Professionnelles", icon: Briefcase },
+    { id: "projets-scolaires", label: "Projets Réalisés", icon: FolderKanban },
+    { id: "skills", label: "Synthèse des Compétences", icon: GraduationCap },
+    { id: "veille", label: "Veille & Développement Pro", icon: Radio },
   ];
 
   return (

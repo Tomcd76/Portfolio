@@ -11,19 +11,16 @@ import {
   Server, 
   HardDrive, 
   Database, 
-  ShieldCheck, 
   Globe, 
   BrainCircuit, 
-  Image as ImageIcon, 
-  Film, 
-  LibraryBig,
   ZoomIn,
   X
 } from "lucide-react";
 
 export default function Veille() {
-  // État pour gérer l'ouverture de l'image en plein écran
+  // États pour gérer l'ouverture des images en plein écran
   const [isImageOpen, setIsImageOpen] = useState(false);
+  const [isPlanImageOpen, setIsPlanImageOpen] = useState(false); 
 
   const veilleLinks = [
     {
@@ -178,7 +175,6 @@ export default function Veille() {
                   Thème de Veille
                 </h2>
                 
-                {/* BOUTON POUR OUVRIR LE PDF DANS UN NOUVEL ONGLET */}
                 <a 
                   href="/Mise en place de ma veille technologique avec Feedly.pdf" 
                   target="_blank"
@@ -199,11 +195,44 @@ export default function Veille() {
                 </p>
                 <div className="mt-8 p-6 bg-indigo-500/5 border border-indigo-500/20 rounded-2xl">
                     <p className="leading-relaxed m-0">
-                    <strong className="text-indigo-400">Objectif :</strong> À travers l'étude des nouveautés de fonctionnalités, des vulnérabilités (CVE) et des stratégies des constructeurs (sideloading, IA, gestion du parc), anticiper les impacts techniques et sécuritaires sur la gestion d'un parc informatique en entreprise.
+                    <strong className="text-indigo-400">Objectif :</strong> Étudier les nouveautés, les vulnérabilités et les évolutions des écosystèmes OS et matériels en 2026.
                     </p>
                 </div>
               </div>
             </section>
+
+            {/* --- SECTION PLAN DE VEILLE (MIND MAP) --- */}
+            <section className="mt-4 mb-16">
+              <h3 className="text-2xl font-semibold text-white mb-8 flex items-center gap-4">
+                <BrainCircuit className="w-7 h-7 text-indigo-400" />
+                Plan de Veille Stratégique
+              </h3>
+              
+              <div className="w-full flex flex-col items-center">
+                <div 
+                  className="relative cursor-pointer rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.3)] hover:shadow-indigo-500/20 transition-all duration-500 w-full max-w-3xl group"
+                  onClick={() => setIsPlanImageOpen(true)}
+                >
+                  <div className="absolute inset-0 bg-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                    <div className="bg-zinc-900/90 p-3 px-5 rounded-full text-white backdrop-blur-md flex items-center gap-2 shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all">
+                      <ZoomIn className="w-5 h-5" />
+                      <span className="text-sm font-bold">Agrandir le plan</span>
+                    </div>
+                  </div>
+                  
+                  {/* ATTENTION ICI : ASSURE-TOI QUE L'EXTENSION EST BIEN .jpg OU .png SELON TON FICHIER */}
+                  <img 
+                    src="/plan-veille.png" 
+                    alt="Plan en arbre de ma veille technologique" 
+                    className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                </div>
+                
+                <p className="mt-6 text-zinc-500 text-sm md:text-base font-medium italic">
+                  Cartographie des axes de recherche et d'analyse de l'information. (Cliquez pour agrandir)
+                </p>
+              </div>
+            </section>     
 
             {/* Sources de Veille */}
             <section className="bg-zinc-900/10 rounded-3xl">
@@ -227,7 +256,7 @@ export default function Veille() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         referrerPolicy="no-referrer"
                         onError={(e) => {
-                          const target = e.target;
+                          const target = e.target as HTMLImageElement;
                           target.src = `https://picsum.photos/seed/art${index + 20}/400/225`;
                         }}
                       />
@@ -256,7 +285,7 @@ export default function Veille() {
                 ))}
               </div>
             </section>
-
+            
             {/* --- SECTION SITES DE VEILLE (ICÔNES) --- */}
             <section className="bg-zinc-900/30 border border-zinc-800 rounded-3xl p-10 mt-12">
               <h3 className="text-2xl font-semibold text-white mb-8 flex items-center justify-center gap-3">
@@ -448,7 +477,7 @@ export default function Veille() {
 
       </div>
 
-      {/* --- LIGHTBOX (MODALE PLEIN ÉCRAN POUR L'IMAGE) --- */}
+      {/* --- LIGHTBOX (MODALE PLEIN ÉCRAN POUR L'IMAGE PROXMOX) --- */}
       {isImageOpen && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/95 backdrop-blur-sm cursor-zoom-out"
@@ -464,7 +493,29 @@ export default function Veille() {
             src="/Monproxmox.png" 
             alt="Mon infrastructure Proxmox en plein écran" 
             className="max-w-full max-h-full object-contain rounded-xl shadow-2xl cursor-default"
-            onClick={(e) => e.stopPropagation()} // Évite de fermer si on clique directement sur l'image
+            onClick={(e) => e.stopPropagation()} 
+          />
+        </div>
+      )}
+
+      {/* --- LIGHTBOX POUR LE PLAN DE VEILLE --- */}
+      {isPlanImageOpen && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/95 backdrop-blur-sm cursor-zoom-out"
+          onClick={() => setIsPlanImageOpen(false)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors p-2"
+            onClick={() => setIsPlanImageOpen(false)}
+          >
+            <X className="w-10 h-10" />
+          </button>
+          {/* ASSURE-TOI ICI AUSSI QUE L'EXTENSION EST BIEN LA BONNE (.jpg ou .png) */}
+          <img 
+            src="/plan-veille.png" 
+            alt="Plan de veille en plein écran" 
+            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl cursor-default"
+            onClick={(e) => e.stopPropagation()}
           />
         </div>
       )}
